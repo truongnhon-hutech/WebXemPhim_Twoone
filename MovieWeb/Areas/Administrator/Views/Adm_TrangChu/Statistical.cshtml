@@ -1,90 +1,245 @@
-﻿@{
+﻿﻿@{
     ViewBag.Title = "Statistical";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 
 }
+@*Đang fix còn lỗi*@
+<h2>Thống kê doanh thu</h2>
+<div class="d-sm-flex align-items-center
+                            justify-content-between mb-4">
+    @using (Html.BeginForm("Statistical", "Adm_TrangChu", FormMethod.Get))
+    {
+        <div class="row">
+            <span>Chọn năm: </span>
+            <div class="input-group">
+                <select name="Year" class="custom-select">
+                    <option selected>@ViewBag.year</option>
+                    @for (int i = 2021; i <= DateTime.Now.Year; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
 
-<h2>Thông kê doanh thu</h2>
+                </select>
+                <input type="submit" class="btn btn-primary" />
+            </div>
 
-@using (Html.BeginForm("Statistical", "Adm_TrangChu", FormMethod.Get))
-{
-    <div class="row">
-        <span>Chọn năm: </span>
-        <select name="Year">
-            <option value="@ViewBag.year">@ViewBag.year</option>
-            @for (int i = 2021; i <= DateTime.Now.Year; i++)
-            {
-                <option value="@i">@i</option>
-            }
-
-        </select>
-        <input type="submit" />
-    </div>
-}
-<style>
-    table, th, td {
-        border: 1px solid black;
+        </div>
     }
-</style>
 
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        @if (ViewBag.month == null)
+        {
+            <!-- Pie Chart -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Doanh thu gói theo năm
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="doanhthunam"></canvas>
+                        <button id="btnExport" onclick="fnExcelReport('DTTG');" class="btn btn-primary"> Xuất CSV <i class="fas fa-download fa-sm text-white-50"></i></button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Pie Chart -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Số lượng đăng ký theo từng tháng
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="doanhthutungthang"></canvas>
+                        <button id="btnExport" onclick="fnExcelReport('DKTG');" class="btn btn-primary"> Xuất CSV <i class="fas fa-download fa-sm text-white-50"></i></button>
+                    </div>
+                </div>
+            </div>
+            @*2*@
+            <!-- Pie Chart dttg -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Bảng thống kê doanh thu theo năm
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <table id="DTTG" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Gói</th>
+                                    <th scope="col">Doanh thu</th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in ViewBag.DTTG)
+                            {
+                                <tr>
+                                    <td>@item.Item1</td>
+                                    <td style="text-align: center"> @Convert.ToDecimal(@item.Item2).ToString("#,##0")</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Pie Chart -->
+            <div class="col-xl-6 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Bảng thống kê số lượng đăng ký theo năm
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <table id="DKTG" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Gói</th>
+                                    <th scope="col">Đăng ký</th>
+                                </tr>
+                            </thead>
+                            @foreach (var item in ViewBag.DKTG)
+                            {
+                                <tr>
+                                    <td>@item.Item1</td>
+                                    <td style="text-align: center">@item.Item2</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @*3*@
+            <!-- Pie Chart -->
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Số đăng ký mới theo từng tháng
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="dangkymoitungthang"></canvas>
+                        <button id="btnExport" onclick="fnExcelReport('DKTT');" class="btn btn-primary"> Xuất CSV <i class="fas fa-download fa-sm text-white-50"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-- Pie Chart -->
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Doanh thu đăng ký
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <table id="DTTT" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <th scope="col">Tháng @i</th>
+                                    }
+                                </tr>
+                            </thead>
+                            @foreach (var item in ViewBag.DTTT)
+                            {
+                                <tr>
+                                    @foreach (var item2 in item)
+                                    {
+                                        <td>@item2</td>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @*4*@
+            <!-- Pie Chart -->
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Số lượng đăng ký
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <table id="DKTT" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <td>Tháng   / Loại DV</td>
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <th scope="col">Tháng @i</th>
+                                    }
+                                </tr>
+                            </thead>
+                            @foreach (var item in ViewBag.DKTT)
+                            {
+                                <tr>
+                                    @foreach (var item2 in item)
+                                    {
+                                        <td style="text-align: center">@item2</td>
+                                    }
+                                </tr>
+                            }
+                        </table>
+                        <br />
+                        <button id="btnExport" onclick="fnExcelReport('DKTT');" class="btn btn-primary"> Xuất CSV <i class="fas fa-download fa-sm text-white-50"></i></button>
+
+                    </div>
+                </div>
+            </div> }
+        else
+        {
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                            Revenue Sources
+                        </h6>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <canvas id="doanhthutheothang"></canvas>
+                        <button id="btnExport" onclick="fnExcelReport('DKTT');" class="btn btn-primary"> Xuất CSV <i class="fas fa-download fa-sm text-white-50"></i></button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 @if (ViewBag.month == null)
 {
 
-    <div class="row">
-
-        <div class="col-md-4">
-            <div>
-                <canvas id="doanhthunam"></canvas>
-            </div>
-        </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-4">
-            <div>
-                <canvas id="dangkymoinam"></canvas>
-            </div>
-        </div>
-    </div>
     <br />
     <br />
     <br />
-    <div class="row">
-        <div class="col-md-4">
-            <table id="DTTG">
-                <tr>
-                    <th>Gói</th>
-                    <th>Doanh thu</th>
-                </tr>
-                @foreach (var item in ViewBag.DTTG)
-                {
-                    <tr>
-                        <td>@item.Item1</td>
-                        <td style="text-align: center">@item.Item2</td>
-                    </tr>
-                }
-            </table>
-            <iframe id="txtArea1" style="display:none"></iframe>
-            <br />
-            <button id="btnExport" onclick="fnExcelReport('DTTG');"> EXPORT </button>
-        </div>
-        <div class="col-md-3"></div>
-        <div class="col-md-4">
-            <table id="DKTG">
-                <tr>
-                    <th>Gói</th>
-                    <th style="width: 85px">Đăng ký</th>
-                </tr>
-                @foreach (var item in ViewBag.DKTG)
-                {
-                    <tr>
-                        <td>@item.Item1</td>
-                        <td style="text-align: center">@item.Item2</td>
-                    </tr>
-                }
-            </table>
-            <br />
-            <button id="btnExport" onclick="fnExcelReport('DKTG');"> EXPORT </button>
-        </div>
-    </div>
+    <canvas id="dangkymoinam"></canvas>
 
     <div class="row">
         <div class="col-md-10">
@@ -92,82 +247,11 @@
                 <canvas id="doanhthutungthang"></canvas>
             </div>
         </div>
-
     </div>
     <br />
     <br />
-    <div class="row">
-        <div class="col-md-11">
-            <table id="DTTT">
-                <tr>
-                    <td></td>
-                    @for (int i = 1; i <= 12; i++)
-                    {
-                        <td>Tháng @i</td>
-                    }
-                </tr>
-                @foreach (var item in ViewBag.DTTT)
-                {
-                    <tr>
-                        @foreach (var item2 in item)
-                        {
-                            <th>@item2</th>
-                        }
-                    </tr>
-                }
-            </table>
-            <br />
-            <button id="btnExport" onclick="fnExcelReport('DTTT');"> EXPORT </button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-10">
-            <div>
-                <canvas id="dangkymoitungthang"></canvas>
-            </div>
-        </div>
-    </div>
-    <br />
-    <br />
-    <div class="row">
-        <div class="col-md-11">
-            <table id="DKTT">
-                <tr>
-                    <td></td>
-                    @for (int i = 1; i <= 12; i++)
-                    {
-                        <td>Tháng @i</td>
-                    }
-                </tr>
-                @foreach (var item in ViewBag.DKTT)
-                {
-                    <tr>
-                        @foreach (var item2 in item)
-                        {
-                            <th>@item2</th>
-                        }
-                    </tr>
-                }
-            </table>
-            <br />
-            <button id="btnExport" onclick="fnExcelReport('DKTT');"> EXPORT </button>
-        </div>
-    </div>
 }
-else
-{
-    <div class="row">
-        <div class="col-md-6">
-            <div>
-                <canvas id="doanhthutheothang"></canvas>
-            </div>
-        </div>
-    </div>
 
-
-
-
-}
 @section scripts{
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="~/js/jquery.js"></script>
@@ -244,7 +328,7 @@ else
                 sa = txtArea1.document.execCommand("SaveAs", true, "Say Thanks to Sumit.xls");
             }
             else                 //other browser not tested on IE 11
-                sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent("\uFEFF"+tab_text));
+                sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent("\uFEFF" + tab_text));
 
             return (sa);
         }

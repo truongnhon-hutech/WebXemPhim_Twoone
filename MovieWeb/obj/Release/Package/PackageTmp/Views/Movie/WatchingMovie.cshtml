@@ -169,21 +169,7 @@
                                             </div>
                                             
                                         </div>
-                                        <!--<div class="movie-rate" style="margin-bottom: 10px; border: none">-->
-                                            @*<div class="rate">
-                                                <i class="ion-android-star"></i>
-                                                <p>
-                                                    <span id="starForm">Đánh giá<br>
-                                                </p>
-                                            </div>*@
-                                            <!--<div class="rate-star ratingDiv">
-                                                <p>Đánh giá phim: </p>
-                                                @for (var star = 1; star <= 5; star++)
-                                                {
-                                                    <i class="ratingStar ion-ios-star-outline" data-value="@star"></i>
-                                                }
-                                            </div>
-                                        </div>-->
+                                        
                                         <div class="form-it">
                                             @Html.TextArea("NoiDungBinhLuan", null, new { @class = "form-control" })
                                         </div>
@@ -194,19 +180,11 @@
                                         </div>
                                     }
                                 </div>
-                                <div class="tabs" style="padding:0 3rem">
-                                    <h2 style="color: white; margin:
-                                                1rem;">
-                                        Reviews
-                                    </h2>
-                                    <div class="tab-content">
-                                        <div id="reviews" class="tab
-                                                    active">
-                                            <div class="row">
-                                                @Html.Action("Comment", "Movie", new { movieid = Model.MaPhim })
-                                               
-                                            </div>
-                                        </div>
+                                <div id="reviews" class="tab review">
+                                    <div class="row">
+                                        
+                                        @Html.Action("Comment", "Movie", new { movieid = Model.MaPhim })
+
                                     </div>
                                 </div>
                             </div>
@@ -266,7 +244,7 @@
     }
     $(".ratingStar").mouseover(function () {
         $(this).removeClass("ion-ios-star-outline").addClass("ion-ios-star").prevAll("i.ratingStar").removeClass("ion-ios-star-outline").addClass("ion-ios-star")
-        $("title").text(currentValue)
+        
     });
     $(".ratingStar").mouseout(function () {
         /*$(this).removeClass("ion-ios-star").addClass("ion-ios-star-outline").prevAll("i.ratingStar").removeClass("ion-ios-star").addClass("ion-ios-star-outline")*/

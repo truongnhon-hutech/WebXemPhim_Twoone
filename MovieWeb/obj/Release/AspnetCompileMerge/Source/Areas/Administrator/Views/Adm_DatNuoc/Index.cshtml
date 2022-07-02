@@ -9,7 +9,7 @@
 <div class="container">
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
     </p>
     <table class="table">
         <tr>
@@ -32,9 +32,9 @@
                     @Html.DisplayFor(modelItem => item.TenNuoc)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.MaNuoc }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.MaNuoc }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.MaNuoc })
+                    @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaNuoc }, null, new { @class = "btn btn-success" })
+                    @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaNuoc }, null, new { @class = "btn btn-info" })
+                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaNuoc }, null, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

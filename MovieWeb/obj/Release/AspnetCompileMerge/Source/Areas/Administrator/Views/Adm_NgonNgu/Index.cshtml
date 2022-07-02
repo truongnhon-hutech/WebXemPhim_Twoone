@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table class="table">
     <tr>
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.TenNgonNgu)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaNgonNgu }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaNgonNgu }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaNgonNgu })
+            @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaNgonNgu }, null, new { @class = "btn btn-success" })
+            @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaNgonNgu }, null, new { @class = "btn btn-info" })
+            @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaNgonNgu }, null, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }

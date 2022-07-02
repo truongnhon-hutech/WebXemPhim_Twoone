@@ -6,17 +6,24 @@
 }
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <h1>QUẢN LÝ PHIM</h1>
+<div class="row">
 
-@using (Html.BeginForm("Index", "Adm_Phim", FormMethod.Get))
+@using (Html.BeginForm("Index", "Adm_Phim", FormMethod.Get, new { @class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"}))
 {
-    <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
+    <div class="input-group">
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control bg-light border-0 small", placeholder = "Tìm theo tên..."})
+        <div class="input-group-append">
+            <button class="btn btn-primary"
+                    type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
 }
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
 </p>
+</div>
 <table class="table">
     <tr>
         <th>
@@ -68,9 +75,9 @@
                 <img src="~/Content/MoviePosters/@item.HinhBanner" ,alt="" , style="width : 120px ;height :140px" />
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaPhim }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaPhim }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaPhim })
+                @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaPhim }, null, new { @class = "btn btn-success" })
+                @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaPhim }, null, new { @class = "btn btn-info my-2", style="font-size: 12px" })
+                @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaPhim }, null, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }

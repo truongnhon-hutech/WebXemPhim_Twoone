@@ -5,11 +5,12 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Xoá</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Bạn có thật sự muốn xóa Đất nước này?</h3>
+
 <div>
-    <h4>DatNuoc</h4>
+    <h4>Đất nước </h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -22,12 +23,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
         </div>
     }
 </div>

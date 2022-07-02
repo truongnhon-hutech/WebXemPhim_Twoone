@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Twoone MovieWeb</title>
-    <link ref="shortcut icon"  href="~/images/logo1.png"/>
+    <link href="~/images/logo1_Url.png" rel="icon" />
+
     @*@Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")*@
     <!--Google Font-->
@@ -86,7 +87,7 @@
                             </ul>
                         </li><li class="dropdown first">
                             <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown" href="@Url.Action("ActorGrid", "Movie")">
-                                Diển viên
+                                Diễn viên
                             </a>
                                 
                         </li>
@@ -97,7 +98,7 @@
                         </li>
                         <li class="dropdown first">
                             <a class="btn btn-default dropdown-toggle lv1" href="@Url.Action("PaymentPage" ,"Payment" )">
-                                Prermium
+                                Premium
                             </a>
                         </li>
                     </ul>
@@ -107,11 +108,11 @@
                 <!-- /.navbar-collapse -->
             </nav>
 
-            @using (Html.BeginForm("Search", "Movie"))
+            @using (Html.BeginForm("SearchByFilter", "Movie"))
             {
-                <div class="top-search">
-                    <input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for" name="keyword" value=@ViewBag.Default style="border-radius: 33px; width:97%">
-                    <button type="submit" style="height: 46px; width: 46px; border-radius: 33px"><i class="fa fa-search"></i></button>
+                <div class="top-search" style="position: relative">
+                    <input type="text" placeholder="Tìm kiếm" name="Ten" value=@ViewBag.Ten style="border-radius: 33px;">
+                    <button type="submit" style="height: 46px; width: 46px; border-radius: 33px; position: absolute; right: -0px"><i class="fa fa-search"></i></button>
                 </div>
             }
         </div>
@@ -130,7 +131,7 @@
                         Đại học công nghệ Hutech<br>
                         Thành phố Hồ Chi Minh
                     </p>
-                    <p>Số điện thoại: <a href="#">(+84) 123 456 JQK</a></p>
+                    <p>Số điện thoại: <a href="#">(+84) 123 456 789 JQK</a></p>
                 </div>
                 <div class="flex-child-ft item2">
                     <h4>Resources</h4>
@@ -179,10 +180,7 @@
             </div>
         </div>
     </footer>
-    <!-- end of footer section-->
-    @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)*@
+   
     <script src="~/js/jquery.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/plugins2.js"></script>

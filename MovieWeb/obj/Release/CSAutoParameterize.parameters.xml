@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="MovieWebContext-Web.config Connection String" description="MovieWebContext Connection String used in web.config by the application to access the database." defaultValue="data source=TRUONGNHON;initial catalog=MovieWeb;user id=sa;password=123;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\vothu\\Downloads\\Web-movie-Twoone-Nhon\\MovieWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MovieWebContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\vothu\\Downloads\\WebXemPhim_Twoone\\MovieWeb\\obj\\Release\\Package\\PackageTmp\\Areas\\Administrator\\Views\\web\.config$" match="/configuration/connectionStrings/add[@name='MovieWebContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\vothu\\Downloads\\WebXemPhim_Twoone\\MovieWeb\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='MovieWebContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\vothu\\Downloads\\WebXemPhim_Twoone\\MovieWeb\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MovieWebContext']/@connectionString" />
   </parameter>
 </parameters>

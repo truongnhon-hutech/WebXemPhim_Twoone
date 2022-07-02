@@ -33,14 +33,12 @@
             </div>
         </div>
 
-        <div class="form-group">
+         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-success" />
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

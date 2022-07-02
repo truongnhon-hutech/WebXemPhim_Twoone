@@ -5,7 +5,7 @@
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Chi tiết</h2>
 
 <div class="container">
     <div class="card">
@@ -27,8 +27,8 @@
             </div>
         </div>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.MaHashTag }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="form-actions my-3 no-color">
+        @Ajax.ActionLink("Sửa", "Edit", new { id = Model.MaHashTag }, null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+    </div>
 </div>

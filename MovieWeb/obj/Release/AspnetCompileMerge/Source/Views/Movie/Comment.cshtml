@@ -1,10 +1,22 @@
 ﻿@model PagedList.IPagedList<MovieWeb.Models.DanhGiaPhim>
 @using PagedList.Mvc
+<div class="topbar-filter">
+    <p>Found <span>@Model.Count reviews</span> in total</p>
+    <label>Filter by:</label>
+    <select>
+        <option value="popularity">Popularity Descending</option>
+        <option value="popularity">Popularity Ascending</option>
+        <option value="rating">Rating Descending</option>
+        <option value="rating">Rating Ascending</option>
+        <option value="date">Release date Descending</option>
+        <option value="date">Release date Ascending</option>
+    </select>
+</div>
 @foreach (var item in Model)
 {
     <div class="mv-user-review-item">
         <div class="user-infor">
-            <img src="~/Content/sample/@item.NguoiDung.HinhAnhNguoiDung" alt="" width="15" height="15" >
+            <img src="~/Content/sample/@item.NguoiDung.HinhAnhNguoiDung" alt="" width="15" height="15">
             <div>
                 <h3>
                     @item.NguoiDung.HoTen

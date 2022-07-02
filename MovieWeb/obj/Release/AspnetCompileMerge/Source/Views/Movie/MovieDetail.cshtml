@@ -67,20 +67,6 @@
                             <p>Điểm IMDb: </p>
                             <p class="rv">@Model.DiemIMDB/10</p> 
                             <img src="~/images/imdb-logo.png" width="70" /><br>
-                            @*<div class="no-star">
-            @for (var star = 1; star <= 5; star++)
-            {
-                if (star <= @Model.SoSaoTrungBinh)
-                {
-                    <i class="ion-ios-star"></i>
-                }
-                else
-                {
-                    <i class="ion-ios-star-outline"></i>
-                }
-            }
-
-        </div>*@
                         </div>
                     </div>
                     <div class="movie-tabs">
@@ -158,25 +144,7 @@
                                 </div>
                                 <div id="reviews" class="tab review">
                                     <div class="row">
-                                        <div class="rv-hd">
-                                            <div class="div">
-                                                <h3>Related Movies To</h3>
-                                                <h2>Skyfall: Quantum of Spectre</h2>
-                                            </div>
-                                            <a href="#" class="redbtn">Write Review</a>
-                                        </div>
-                                        <div class="topbar-filter">
-                                            <p>Found <span>56 reviews</span> in total</p>
-                                            <label>Filter by:</label>
-                                            <select>
-                                                <option value="popularity">Popularity Descending</option>
-                                                <option value="popularity">Popularity Ascending</option>
-                                                <option value="rating">Rating Descending</option>
-                                                <option value="rating">Rating Ascending</option>
-                                                <option value="date">Release date Descending</option>
-                                                <option value="date">Release date Ascending</option>
-                                            </select>
-                                        </div>
+                                        
                                         @Html.Action("Comment", "Movie", new { movieid = Model.MaPhim })
 
                                     </div>

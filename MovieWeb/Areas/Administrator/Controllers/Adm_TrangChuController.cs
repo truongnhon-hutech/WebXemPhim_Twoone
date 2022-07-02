@@ -62,94 +62,94 @@ namespace MovieWeb.Areas.Administrator.Controllers
                 ViewBag.DTTG = DTTG;
                 doanhthunam.options.plugins.title.text = "Doanh thu theo từng gói năm "+year.ToString();
                 ViewBag.doanhthunam = doanhthunam;
-                var dangkymoinam = new Pie(count);
-                dem = -1;
-                float tongDangKyMoi = 0;
-                List<Tuple<string, int>> DKTG = new List<Tuple<string, int >>();
-                foreach (var item in gois)
-                {
-                    r += random.Next(0x1000000);
-                    dem++;
-                    dangkymoinam.data.labels[dem] = item.TenGoiDV;
-                    dangkymoinam.data.datasets[0].backgroundColor[dem] = String.Format("#{0:X6}", r % 0x1000000);
-                    float Dangky = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year).Count());
-                    dangkymoinam.data.datasets[0].data[dem] = Dangky;
-                    tongDangKyMoi += Dangky;
-                    DKTG.Add(new Tuple<string, int>(item.TenGoiDV, (int)Dangky ) );
-                }
-                for (int i = 0; i < count; i++)
-                {
-                    dangkymoinam.data.datasets[0].data[i] = dangkymoinam.data.datasets[0].data[i] / tongDangKyMoi * 100;
-                }
-                DKTG.Add(new Tuple<string, int>("Tổng đăng ký mới trong năm", (int)tongDangKyMoi));
-                ViewBag.DKTG = DKTG;
-                dangkymoinam.options.plugins.title.text = "Số đăng ký mới theo gói năm " + year.ToString();
-                ViewBag.dangkymoinam = dangkymoinam;
-                dem = -1;
-                Line doanhthutungthang = new Line(count);
-                doanhthutungthang.data.labels = new string[12] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" };
+            var dangkymoinam = new Pie(count);
+            dem = -1;
+            float tongDangKyMoi = 0;
+            List<Tuple<string, int>> DKTG = new List<Tuple<string, int >>();
+            foreach (var item in gois)
+            {
+                r += random.Next(0x1000000);
+                dem++;
+                dangkymoinam.data.labels[dem] = item.TenGoiDV;
+                dangkymoinam.data.datasets[0].backgroundColor[dem] = String.Format("#{0:X6}", r % 0x1000000);
+                float Dangky = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year).Count());
+                dangkymoinam.data.datasets[0].data[dem] = Dangky;
+                tongDangKyMoi += Dangky;
+                DKTG.Add(new Tuple<string, int>(item.TenGoiDV, (int)Dangky ) );
+            }
+            for (int i = 0; i < count; i++)
+            {
+                dangkymoinam.data.datasets[0].data[i] = dangkymoinam.data.datasets[0].data[i] / tongDangKyMoi * 100;
+            }
+            DKTG.Add(new Tuple<string, int>("Tổng đăng ký mới trong năm", (int)tongDangKyMoi));
+            ViewBag.DKTG = DKTG;
+            dangkymoinam.options.plugins.title.text = "Số đăng ký mới theo gói năm " + year.ToString();
+            ViewBag.dangkymoinam = dangkymoinam;
+            dem = -1;
+            Line doanhthutungthang = new Line(count);
+            doanhthutungthang.data.labels = new string[12] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" };
 
-                // Pie doanhthutheothangPie ;
-                List< object> DTTT = new List<object>();
-                List< object> tong = new List<object>();
-                tong.Add("Tổng");
+            // Pie doanhthutheothangPie ;
+            List< object> DTTT = new List<object>();
+            List< object> tong = new List<object>();
+            tong.Add("Tổng");
+            for (int i = 0; i < 12; i++)
+                tong.Add(0f);
+            foreach (var item in gois)
+            {
+                dem++;
+                doanhthutungthang.data.datasets[dem].data = new float[12];
+                doanhthutungthang.data.datasets[dem].label = item.TenGoiDV;
+                doanhthutungthang.data.datasets[dem].borderColor = GetRandomColour();
+                // float[] tmp = new float[12];
+                List< object> DTT = new List<object>();
+                DTT.Add(item.TenGoiDV);
                 for (int i = 0; i < 12; i++)
-                    tong.Add(0f);
-                foreach (var item in gois)
                 {
-                    dem++;
-                    doanhthutungthang.data.datasets[dem].data = new float[12];
-                    doanhthutungthang.data.datasets[dem].label = item.TenGoiDV;
-                    doanhthutungthang.data.datasets[dem].borderColor = GetRandomColour();
-                    // float[] tmp = new float[12];
-                    List< object> DTT = new List<object>();
-                    DTT.Add(item.TenGoiDV);
-                    for (int i = 0; i < 12; i++)
-                    {
-                        doanhthutungthang.data.datasets[dem].data[i] = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year && x.NgayThanhToan.Month == i).Sum(x => x.ThanhTien));
-                        DTT.Add(doanhthutungthang.data.datasets[dem].data[i]);
-                        tong[i + 1] =(float)tong[i+1]+ doanhthutungthang.data.datasets[dem].data[i];
-                    }
-                    DTTT.Add(DTT);
+                    doanhthutungthang.data.datasets[dem].data[i] = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year && x.NgayThanhToan.Month == i).Sum(x => x.ThanhTien));
+                    DTT.Add(doanhthutungthang.data.datasets[dem].data[i]);
+                    tong[i + 1] =(float)tong[i+1]+ doanhthutungthang.data.datasets[dem].data[i];
                 }
-                DTTT.Add(tong);
-                ViewBag.DTTT = DTTT;
-                doanhthutungthang.options.plugins.title.text = "Doanh thu theo từng tháng năm " + year.ToString();
-                ViewBag.doanhthutungthang = doanhthutungthang;
+                DTTT.Add(DTT);
+            }
+            DTTT.Add(tong);
+            ViewBag.DTTT = DTTT;
+            doanhthutungthang.options.plugins.title.text = "Doanh thu theo từng tháng năm " + year.ToString();
+            ViewBag.doanhthutungthang = doanhthutungthang;
 
-                dem = -1;
-                Line dangkymoitungthang = new Line(count);
-                dangkymoitungthang.data.labels = new string[12] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" };
-                List<object> DKTT = new List<object>();
-                List<object> tong2 = new List<object>();
-                tong2.Add("Tổng");
+            dem = -1;
+            Line dangkymoitungthang = new Line(count);
+            dangkymoitungthang.data.labels = new string[12] { "Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12" };
+            List<object> DKTT = new List<object>();
+            List<object> tong2 = new List<object>();
+            tong2.Add("Tổng");
+            for (int i = 0; i < 12; i++)
+                tong2.Add(0f);
+
+            // Pie doanhthutheothangPie ;
+
+            foreach (var item in gois)
+            {
+                dem++;
+                dangkymoitungthang.data.datasets[dem].data = new float[12];
+                dangkymoitungthang.data.datasets[dem].label = item.TenGoiDV;
+                dangkymoitungthang.data.datasets[dem].borderColor = GetRandomColour();
+                List<object> DKT = new List<object>();
+                DKT.Add(item.TenGoiDV);
+                // float[] tmp = new float[12];
                 for (int i = 0; i < 12; i++)
-                    tong2.Add(0f);
-
-                // Pie doanhthutheothangPie ;
-
-                foreach (var item in gois)
                 {
-                    dem++;
-                    dangkymoitungthang.data.datasets[dem].data = new float[12];
-                    dangkymoitungthang.data.datasets[dem].label = item.TenGoiDV;
-                    dangkymoitungthang.data.datasets[dem].borderColor = GetRandomColour();
-                    List<object> DKT = new List<object>();
-                    DKT.Add(item.TenGoiDV);
-                    // float[] tmp = new float[12];
-                    for (int i = 0; i < 12; i++)
-                    {
 
-                        dangkymoitungthang.data.datasets[dem].data[i] = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year && x.NgayThanhToan.Month == i).Count());
-                        DKT.Add(dangkymoitungthang.data.datasets[dem].data[i]);
-                        tong2[i + 1] = (float)tong2[i + 1] + dangkymoitungthang.data.datasets[dem].data[i];
-                    }
-                    DKTT.Add(DKT);
+                    dangkymoitungthang.data.datasets[dem].data[i] = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year && x.NgayThanhToan.Month == i).Count());
+                    DKT.Add(dangkymoitungthang.data.datasets[dem].data[i]);
+                    tong2[i + 1] = (float)tong2[i + 1] + dangkymoitungthang.data.datasets[dem].data[i];
                 }
-                DKTT.Add(tong2);
-                ViewBag.DKTT = DKTT;
-                dangkymoitungthang.options.plugins.title.text = "Số đăng ký mới theo từng tháng " + year.ToString();
-                ViewBag.dangkymoitungthang = dangkymoitungthang;
+                DKTT.Add(DKT);
+            }
+            DKTT.Add(tong2);
+            ViewBag.DKTT = DKTT;
+            dangkymoitungthang.options.plugins.title.text = "Số đăng ký mới theo từng tháng " + year.ToString();
+            ViewBag.dangkymoitungthang = dangkymoitungthang;
             }
             else
             {
@@ -174,15 +174,18 @@ namespace MovieWeb.Areas.Administrator.Controllers
                         doanhthutheothang.data.datasets[dem].data[i] = (float)(item.PhieuDangKies.Where(x => x.NgayThanhToan.Year == year && x.NgayThanhToan.Month == month && x.NgayThanhToan.Day == i).Sum(x => x.ThanhTien));
                     }
                 }
-                ViewBag.doanhthutheothang = doanhthutheothang;
-            }
+               ViewBag.doanhthutheothang = doanhthutheothang;
+           }
             return View();
         }
         public ActionResult Adm_Home()
         {
             if (Session["Admin"] == null)
                 return RedirectToAction("Login", "Adm_TrangChu");
-            //ViewBag.earnings = 
+            MovieWebContext db = new MovieWebContext();
+            ViewBag.month = (float)(db.PhieuDangKies.Where(x => x.NgayThanhToan.Year == DateTime.Now.Year && x.NgayThanhToan.Month == DateTime.Now.Month).Sum(x => x.ThanhTien));
+            ViewBag.year = (float)(db.PhieuDangKies.Where(x => x.NgayThanhToan.Year == DateTime.Now.Year).Sum(x => x.ThanhTien));
+            ViewBag.LuongDangKy = ((float)(db.NguoiDungs.Where(x => x.PhieuDangKies.Any(y => y.MaGoiDV != 3)).Count())) / ((float)(db.NguoiDungs.Count())) * 100;
             return View();
         }
         [HttpGet]

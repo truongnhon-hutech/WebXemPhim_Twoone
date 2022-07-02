@@ -32,8 +32,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-danger" /> |
-            @Html.ActionLink("Quay về danh sách", "Index")
+            <input type="submit" value="Xóa" class="btn btn-danger" /> 
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
         </div>
     }
 </div>

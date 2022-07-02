@@ -28,7 +28,7 @@
             <div class="col-md-8">
                 <div class="title-hd">
                     <h2>Phim lẻ</h2>
-                    <a href="@Url.Action("MovieGrid", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
+                    <a href="@Url.Action("SearchByFilter", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
                 </div>
                 <div class="tabs">
                     <ul class="tab-links">
@@ -69,8 +69,8 @@
                     </div>
                 </div>
                 <div class="title-hd">
-                    <h2>Phim đề suất cho bạn</h2>
-                    <a href="@Url.Action("MovieGrid", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
+                    <h2>Phim đề xuất cho bạn</h2>
+                    <a href="@Url.Action("SearchByFilter", "Movie", new {sortOrder = "IMDB_desc"})" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
                 </div>
                 <div class="tabs">
                     <div class="tab-content">
@@ -93,7 +93,7 @@
                     <div class="celebrities">
                         <h4 class="sb-title">Diễn viên yêu thích</h4>
                         @Html.Action("TC_TTPhimTDV", "Movie", new { id = 2 })
-                        <a href="@Url.Action("MovieGrid", "Movie")" class="btn">Tất cả diễn viên<i class="ion-ios-arrow-right"></i></a>
+                        <a href="@Url.Action("ActorGrid", "Movie")" class="btn">Tất cả diễn viên<i class="ion-ios-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
             <div class="col-md-12">
                 <div class="title-hd">
                     <h2>Phim sắp ra mắt</h2>
-                    <a href="@Url.Action("MovieGird", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
+                    <a href="@Url.Action("SearchByFilter", "Movie", new{ sortOrder = "date_desc"})" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
                 </div>
                 <div class="videos">
                     <div class="slider-for-2 video-ft">
@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="slider-nav-2 thumb-ft">
-                        @foreach (var item in Model)
+                        @foreach (var item in Model.Take(10))
                         {
                             <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">
                                 <div class="item">

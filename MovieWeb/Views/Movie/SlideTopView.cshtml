@@ -12,20 +12,13 @@
     
     <div class="title-in">
         <div class="cate">
-            @*<span class="yell"><a href="#">action</a></span>*@
-            @*<span class="green"><a href="#">love</a></span>*@
             @foreach (var x in item.TheLoais)
             {
                 <span class="green"><a href="@Url.Action("MovieToGenre","Movie", new {id = x.MaTheLoai})">@x.TenTheLoai</a></span>
             }
         </div>
         <h6><a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">@item.TenPhim</a></h6>
-        
-        <div >
-            <img src="~/images/imdb-logo.png" style="width:50px" />
-            <span>@item.DiemIMDB</span> /10
-        </div>
-
+        <p><i class="ion-android-star"></i><span>@item.DiemIMDB</span> /10</p>
     </div>
 </div>
 }

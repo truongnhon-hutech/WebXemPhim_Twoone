@@ -4,11 +4,12 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
+<h1>QUẢN LÝ HASHTAG</h1>
 
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm", "Create",null, new { @class = "btn btn-primary" })
+
 </p>
 <table class="table">
     <tr>
@@ -31,9 +32,10 @@
                 @Html.DisplayFor(modelItem => item.TenTag)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaHashTag }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaHashTag }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaHashTag })
+                @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaHashTag }, null, new { @class = "btn btn-success" })
+                @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaHashTag }, null, new { @class = "btn btn-info" })
+                @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaHashTag }, null, new { @class = "btn btn-danger" })                
+
             </td>
         </tr>
     }

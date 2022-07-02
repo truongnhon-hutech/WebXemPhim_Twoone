@@ -1,15 +1,15 @@
 ﻿
 
 <div class="topbar-filter">
-    <p>Tìm thấy <span>@Model.Count phim</span> trên tổng số 3041 phim</p>
-    <label>Filter by:</label>
+    <p>Tìm thấy <span>@Model.Count</span> phim</p>
+    <label>Lọc theo :</label>
     <select>
-        <option value="popularity">Popularity Descending</option>
-        <option value="popularity">Popularity Ascending</option>
-        <option value="rating">Rating Descending</option>
-        <option value="rating">Rating Ascending</option>
-        <option value="date">Release date Descending</option>
-        <option value="date">Release date Ascending</option>
+        <option value="popularity">Độ phổ biến giảm</option>
+        <option value="popularity">Độ phổ biến tăng</option>
+        <option value="rating">Lượt đánh giả giảm</option>
+        <option value="rating">Lượt đánh gía tăng</option>
+        <option value="date">Ngày phát hành tăng</option>
+        <option value="date">Ngày phát hành giảm</option>
     </select>
 </div>
 <!-- movie cast -->
@@ -19,9 +19,9 @@
     {
         <div class="cast-it">
             <div class="cast-left cebleb-film">
-                <img src="images/uploads/film1.jpg" alt="" style="border-radius: 33px">
+                <img src="~/Content/MoviePosters/@item.Phim.HinhBanner" alt="" style="border-radius: 33px; height: 50px">
                 <div>
-                    <a href="#">@item.Phim.TenPhim </a>
+                    <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim })">@item.Phim.TenPhim </a>
                     <p class="time">@item.TenVaiDien</p>
                 </div>
 

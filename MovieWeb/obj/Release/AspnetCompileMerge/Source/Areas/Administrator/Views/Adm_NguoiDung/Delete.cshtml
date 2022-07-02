@@ -4,8 +4,7 @@
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
 }
-<h3>Are you sure you want to delete this?</h3>
-<div class="container">
+<h3>Bạn có muốn xóa không?</h3>
     <div class="card">
 
         <div class="card-body">
@@ -65,9 +64,8 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-actions my-3 no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger"  /> 
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark"})
         </div>
     }
-</div>

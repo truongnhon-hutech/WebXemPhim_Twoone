@@ -7,15 +7,18 @@
 }
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <h1>QUẢN LÝ NGƯỜI DÙNG</h1>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@using (Html.BeginForm("Index", "Adm_NguoiDung", FormMethod.Get))
+
+@using (Html.BeginForm("Index", "Adm_NguoiDung", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-2 mw-100 navbar-search" }))
 {
-    <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
+    <div class="input-group">
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control bg-light border-0 small", placeholder = "Tìm theo tên..." })
+        <div class="input-group-append">
+            <button class="btn btn-primary"
+                    type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
 }
 <table class="table">
     <tr>
@@ -68,20 +71,19 @@
                 @Html.DisplayFor(modelItem => item.SDT)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NgaySinh)
+                @item.NgaySinh.Value.ToShortDateString()
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TaiKhoan)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MaNguoiDung }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MaNguoiDung }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MaNguoiDung })
+                @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaNguoiDung }, null, new { @class = "btn btn-info" })
+                @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung }, null, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
 
 </table>
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
 
 @Html.PagedListPager(Model, page => Url.Action("Index", "Adm_NguoiDung", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

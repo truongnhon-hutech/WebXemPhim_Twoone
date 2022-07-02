@@ -3,6 +3,6 @@
 @foreach (var item in Model)
 {
     <li class="dropdown">
-        <a href="@Url.Action("MovieToCountry","Movie", new {id = item.MaNuoc})">@item.TenNuoc</a>
+        <a href="@Url.Action("SearchByFilter","Movie", new {MaNuoc = item.MaNuoc})">@item.TenNuoc</a>
     </li>
 }

@@ -77,8 +77,6 @@
                                 <h6><a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">@item.TenPhim <span>@item.NgaySanXuat.Value.Year</span></a></h6>
                                 <p class="rate"><i class="ion-android-star"></i><span>@item.DiemIMDB</span> /10</p>
                                 <p class="describe">@item.NoiDungPhimTomTat</p>
-                                <p class="run-time"> Thời lượng: @item.ThoiLuong phút     .     <span>Ngày sản xuất: @item.NgaySanXuat.Value.Day / @item.NgaySanXuat.Value.Month / @item.NgaySanXuat.Value.Year</span></p>
-                                <div class="hvr-inner btn ">
                                     <a href="@Url.Action("MovieGird", "Movie", new { id = item.MaPhim})" style="color:yellow"> Xem thêm <i class="ion-android-arrow-dropright"></i> </a>
                                 </div>
                             </div>
@@ -86,9 +84,9 @@
                     }
                 }
                 <div class="topbar-filter">
-                    <label style="color: white">Movies per page:</label>
+                    @*<label style="color: white">Số phim mỗi trang:</label>*@
 
-                    <span style="color: white">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount:</span>
+                    <span style="color: white">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) của @Model.PageCount:</span>
                     <div class="pagination2">
                         @Html.PagedListPager(Model, page => Url.Action("SearchByFilter", "Movie", new { page = page, Ten = ViewBag.Ten, MaMaTheLoai = ViewBag.MaTheLoai, MaNuoc = ViewBag.MaNuoc, MaNgonNgu = ViewBag.MaNgonNgu, dIMDB = ViewBag.DIMDB, From = ViewBag.From, To = ViewBag.To, Grid = ViewBag.Grid, sortOrder = ViewBag.Order }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
                     </div>
@@ -106,26 +104,26 @@
                             <div class="row">
                                 <div class="col-md-12 form-it">
                                     <label>Tên phim</label>
-                                    <input type="text" placeholder="Gõ từ khoá" name="Ten" value="@ViewBag.Ten">
+                                    <input type="text" placeholder="Gõ từ khoá ..." name="Ten" value="@ViewBag.Ten">
                                 </div>
                                 <div class="col-md-12 form-it">
                                     <label>Thể loại</label>
                                     <div class="group-ip">
-                                        @Html.DropDownList("MaTheLoai", null, "Select one...", htmlAttributes: new { @class = "form-control" })
+                                        @Html.DropDownList("MaTheLoai", null, "Chọn thể loại", htmlAttributes: new { @class = "form-control" })
                                     </div>
 
                                 </div>
                                 <div class="col-md-12 form-it">
                                     <label>Quốc gia</label>
                                     <div class="group-ip">
-                                        @Html.DropDownList("MaNuoc", null, "select", htmlAttributes: new { @class = "form-control" })
+                                        @Html.DropDownList("MaNuoc", null, "Chọn quốc gia", htmlAttributes: new { @class = "form-control" })
                                     </div>
 
                                 </div>
                                 <div class="col-md-12 form-it">
                                     <label>Ngôn ngữ</label>
                                     <div class="group-ip">
-                                        @Html.DropDownList("MaNgonNgu", null, "select", htmlAttributes: new { @class = "form-control" })
+                                        @Html.DropDownList("MaNgonNgu", null, "Chọn ngôn ngữ", htmlAttributes: new { @class = "form-control" })
                                     </div>
 
                                 </div>
@@ -133,7 +131,7 @@
                                     <label>IMDB</label>
 
                                     <select name="dIMDB">
-                                        <option value="">--IMDB--</option>
+                                        <option value="">Chọn</option>
                                         <option value=1>1-2</option>
                                         <option value=2>2-3</option>
                                         <option value=3>3-4</option>
@@ -147,7 +145,7 @@
 
                                 </div>
                                 <div class="col-md-12 form-it">
-                                    <label>Release Year</label>
+                                    <label>Năm phát hành</label>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <select name="From">
@@ -170,7 +168,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 ">
-                                    <input class="submit" type="submit" value="submit">
+                                    <input class="submit" type="submit" value="Tìm">
                                 </div>
                             </div>
                         }
