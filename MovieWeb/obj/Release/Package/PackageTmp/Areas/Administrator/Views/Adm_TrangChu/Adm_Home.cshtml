@@ -1,0 +1,178 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">QUẢN LÝ</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Index", "Adm_NguoiDung")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Quản lý người dùng
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Index", "Adm_Phim")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Quản lý phim
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Index", "Adm_DienVien")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Quản lý diễn viên
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Index", "Adm_DaoDien")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Quản lý đạo diễn
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Index", "Adm_HashTag")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Quản lý HashTag
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Index", "Adm_NgonNgu")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Quản lý ngôn ngữ
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">THỐNG KÊ</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Statistical", "Adm_TrangChu")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Doanh thu
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="@Url.Action("Statistical", "Adm_TrangChu")">
+
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Lượt xem
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+    </div>
+</div>

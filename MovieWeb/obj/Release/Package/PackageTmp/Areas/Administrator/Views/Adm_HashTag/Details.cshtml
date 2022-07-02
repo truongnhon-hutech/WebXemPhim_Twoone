@@ -1,0 +1,34 @@
+﻿@model MovieWeb.Models.HashTag
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="box-title">Thông tin</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-product">
+                    <tbody>
+                        <tr>
+                            <td>Mã HashTag</td>
+                            <td>@Html.DisplayFor(model => model.MaHashTag)</td>
+                        </tr>
+                        <tr>
+                            <td>Tên HashTag</td>
+                            <td>@Html.DisplayFor(model => model.TenTag)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaHashTag }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

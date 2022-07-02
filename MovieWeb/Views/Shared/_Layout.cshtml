@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twoone MovieWeb</title>
+    <link href="~/images/logo1_Url.png" rel="icon" />
+
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+    <!--Google Font-->
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+    <!-- Mobile specific meta -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="~/css/plugins.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+
+    <!--preloading-->
+    <div id="preloader">
+        <img class="logo" src="~/images/logo1.png" alt="" width="119" height="58">
+        <div id="status">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!--end of preloading-->
+    <!-- BEGIN | Header -->
+    <header class="ht-header">
+        <div class="container">
+            <nav class="navbar navbar-default navbar-custom">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header logo">
+                    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <div id="nav-icon1">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("Home","Movie")"><img class="logo" src="~/images/logo1.png" alt="" width="119" height="58"></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav flex-child-menu menu-left">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" href="@Url.Action("Home","Movie")">
+                                Trang chủ
+                            </a>
+
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                Thể Loại<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                @* Partica View  TheLoai *@
+                                @Html.Action("Genre", "Movie")
+                            </ul>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                Quốc gia<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                @* Partica View  QuocGia*@
+                                @Html.Action("Country", "Movie")
+
+                            </ul>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                Ngôn ngữ<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                @* Partica View NgonNgu *@
+                                @Html.Action("Language", "Movie")
+
+                            </ul>
+                        </li><li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown" href="@Url.Action("ActorGrid", "Movie")">
+                                Diển viên
+                            </a>
+                                
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" href="@Url.Action("Contact" ,"Movie" )">
+                                Về chúng tôi
+                            </a>
+                        </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" href="@Url.Action("PaymentPage" ,"Payment" )">
+                                Premium
+                            </a>
+                        </li>
+                    </ul>
+                    @Html.Partial("LoginPartial")
+                    
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+
+            @using (Html.BeginForm("SearchByFilter", "Movie"))
+            {
+                <div class="top-search" style="position: relative">
+                    <input type="text" placeholder="Tìm kiếm" name="Ten" value=@ViewBag.Ten style="border-radius: 33px;">
+                    <button type="submit" style="height: 46px; width: 46px; border-radius: 33px; position: absolute; right: -0px"><i class="fa fa-search"></i></button>
+                </div>
+            }
+        </div>
+    </header>
+    <!-- END | Header -->
+
+    @RenderBody()
+
+    <!-- footer section-->
+    <footer class="ht-footer">
+        <div class="container">
+            <div class="flex-parent-ft">
+                <div class="flex-child-ft item1">
+                    <a href="index.html"><img class="logo" src="~/images/logo1.png" alt="" style="width: 130px; height:70px"></a>
+                    <p>
+                        Đại học công nghệ Hutech<br>
+                        Thành phố Hồ Chi Minh
+                    </p>
+                    <p>Số điện thoại: <a href="#">(+84) 123 456 789 JQK</a></p>
+                </div>
+                <div class="flex-child-ft item2">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("About","Movie")">About</a>
+                        </li>
+                        
+                        <li><a href="@Url.Action("Contact","Movie")">Contact</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item3">
+                    <h4>Chính sách</h4>
+                    <ul>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item4">
+                    <h4>Tài Khoản</h4>
+                    <ul>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Watchlist</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">User Guide</a></li>
+                    </ul>
+                </div>
+                <div class="flex-child-ft item5">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+                    <form action="#">
+                        <input type="text" placeholder="Enter your email...">
+                    </form>
+                    <a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="ft-copyright">
+            <div class="ft-left">
+                <p>© 2022 Twoone.</p>
+            </div>
+            <div class="backtotop">
+                <p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer section-->
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/plugins.js"></script>
+    <script src="~/js/plugins2.js"></script>
+    <script src="~/js/custom.js"></script>
+    <script src="https://cdn.tiny.cloud/1/xekc15gke11qin6cwkvv4jha5qamongkxqxqkige4s3m32yr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "insertdatetime"
+            ],
+            width: 'auto',
+            height: 300,
+            skin: "oxide-dark",
+            content_css: "dark",
+            menubar: false
+        });
+    </script>
+</body>
+</html>

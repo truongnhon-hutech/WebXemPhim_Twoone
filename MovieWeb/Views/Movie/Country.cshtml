@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MovieWeb.Models.DatNuoc>
+
+@foreach (var item in Model)
+{
+    <li class="dropdown">
+        <a href="@Url.Action("SearchByFilter","Movie", new {MaNuoc = item.MaNuoc})">@item.TenNuoc</a>
+    </li>
+}

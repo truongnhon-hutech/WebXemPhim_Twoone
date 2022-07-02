@@ -1,0 +1,27 @@
+﻿<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> @Model.TaiKhoan</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="@Url.Action("Home","Movie")" style="font-weight: bold; }">Trang chủ</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> Thông tin tài khoản</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            @Html.Partial("menu_profile")
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="form-style-1 user-pro" action=""> @Html.Partial("ChangeInfor")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

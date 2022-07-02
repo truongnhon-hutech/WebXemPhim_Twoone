@@ -1,0 +1,300 @@
+﻿@model MovieWeb.Models.Phim
+@{
+    ViewBag.Title = "Xem phim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> movie listing - list</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="@Url.Action("Home", "Movie")">Home</a></li>
+                        <li>
+                            <span class="ion-ios-arrow-right"></span>
+                            Xem phim
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="movie-item-style-2">
+                    <iframe class="embed-responsive-item rounded
+                                col-15"
+                            src="https://www.youtube.com/embed/@Model.LinkPhim"
+                            @*src="https://kd.hd-bophim.com/share/b180bd9c2d0748cbd912ade1824b9228"*@
+                            width="1150" height="500"
+                            allow="accelerometer; autoplay;
+                                clipboard-write;
+                                encrypted-media; gyroscope;
+                                picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="movie-item-style-2">
+                            <div class="mv-item-infor">
+                                <h2 class="sb-title" style="margin: 0; text-transform: none">Thông tin phim</h2>
+                                <br />
+                                <h6>
+                                    <a href="moviesingle.html">
+                                        @Model.TenPhim
+                                        <span>(@Model.NgaySanXuat.Value.Year)</span>
+                                    </a>
+                                </h6>
+                                <p class="rate">
+                                    <i class="ion-android-star"></i><span>@Model.SoSaoTrungBinh</span>
+                                    /5
+                                </p>
+                                <p class="describe">
+                                    @Model.NoiDungPhimTomTat
+                                </p>
+                                <p class="run-time">
+                                    Thời lượng: @Model.ThoiLuong phút.
+                                </p>
+                                <p>
+                                    <span>MMPA: PG-13 </span> . <span>
+                                        Ngày phát hành:
+                                        @Model.NgaySanXuat.Value.Date.ToString("dd/MM/yyyy")
+                                    </span>
+
+                                </p>
+                                <p>
+                                    Đạo diễn:
+                                    @foreach (var item in Model.DaoDiens)
+                                    {
+                                        <a href="#">@item.TenDaoDien</a>
+                                    }
+                                </p>
+                                <p>
+                                    Diễn viên:
+                                    @foreach (var item in Model.DienVienDongPhims)
+                                    {
+                                        <a href="#">@item.DienVien.TenDienVien</a>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-single movie-single movie_single">
+            <div class="container">
+                <div class="row ipad-width2">
+
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="movie-single-ct main-content">
+                            <h1 class="bd-hd">
+                                @Model.TenPhim
+                                <span>@Model.NgaySanXuat.Value.Year</span>
+                            </h1>
+                            <div class="social-btn">
+                                <a href="#" class="parent-btn">
+                                    <i class="ion-heart"></i> Add to
+                                    Favorite
+                                </a>
+                                <div class="hover-bnt">
+                                    <a href="#" class="parent-btn">
+                                        <i class="ion-android-share-alt"></i>share
+                                    </a>
+                                    <div class="hvr-item">
+                                        <a href="#" class="hvr-grow">
+                                            <i class="ion-social-facebook"></i>
+                                        </a>
+                                        <a href="#" class="hvr-grow">
+                                            <i class="ion-social-twitter"></i>
+                                        </a>
+                                        <a href="#" class="hvr-grow">
+                                            <i class="ion-social-googleplus"></i>
+                                        </a>
+                                        <a href="#" class="hvr-grow">
+                                            <i class="ion-social-youtube"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="movie-rate">
+                                <div class="rate">
+                                    <i class="ion-android-star"></i>
+                                    <p>
+                                        <span >@Model.SoSaoTrungBinh</span> /5<br>
+                                        <span class="rv">@Model.SoLuotDanhGia Reviews</span>
+                                    </p>
+                                </div>
+                                <div class="rate-star">
+                                    <p>Đánh giá phim: </p>
+                                    @for (var star = 1; star <= 5; star++)
+                                    {
+                                        if (star <= Model.SoSaoTrungBinh)
+                                        {
+                                            <i class="ion-ios-star"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="ion-ios-star-outline"></i>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="movie-tabs">
+                                @Html.Raw(ViewData["Loi"])
+                                <div class="form-style-1">
+                                    @using (@Html.BeginForm("WatchingMovie", "Movie", new { maPhim = Model.MaPhim }))
+                                    {
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Đánh giá</label>
+                                            </div>
+                                            <div class="col-md-6 text-right ratingDiv">
+                                                @for (var star = 1; star <= 5; star++)
+                                                {
+                                                    <i class="star-rating ratingStar ion-ios-star-outline" data-value="@star"></i>
+                                                }
+                                                @Html.TextBox("SoSao", 0, new { id = "starForm", @class = "form-control", type = "hidden" })
+                                            </div>
+                                            
+                                        </div>
+                                        <!--<div class="movie-rate" style="margin-bottom: 10px; border: none">-->
+                                            @*<div class="rate">
+                                                <i class="ion-android-star"></i>
+                                                <p>
+                                                    <span id="starForm">Đánh giá<br>
+                                                </p>
+                                            </div>*@
+                                            <!--<div class="rate-star ratingDiv">
+                                                <p>Đánh giá phim: </p>
+                                                @for (var star = 1; star <= 5; star++)
+                                                {
+                                                    <i class="ratingStar ion-ios-star-outline" data-value="@star"></i>
+                                                }
+                                            </div>
+                                        </div>-->
+                                        <div class="form-it">
+                                            @Html.TextArea("NoiDungBinhLuan", null, new { @class = "form-control" })
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <input class="submit" type="submit" value="Xác nhận">
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="tabs" style="padding:0 3rem">
+                                    <h2 style="color: white; margin:
+                                                1rem;">
+                                        Reviews
+                                    </h2>
+                                    <div class="tab-content">
+                                        <div id="reviews" class="tab
+                                                    active">
+                                            <div class="row">
+                                                @Html.Action("Comment", "Movie", new { movieid = Model.MaPhim })
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="sidebar">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h2 class="sb-title" style="margin: 0; text-transform: none"">Phim tương tự</h2>
+                                @Html.Action("SimilarMovie", "Movie", new { movieid = Model.MaPhim })
+                            </div>
+                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=689125921801226&autoLogAppEvents=1" nonce="W9mqCUoY"></script>
+                            <div class="sb-facebook sb-it">
+                                <h4 class="sb-title">Facebook của Twoone</h4>
+                                <div class="fb-page" data-href="https://www.facebook.com/Twoone-103646042401175" data-tabs="Twoone" data-width="300" data-height="315" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                                    <blockquote cite="https://www.facebook.com/Twoone-103646042401175" class="fb-xfbml-parse-ignore">
+                                        <a href="https://www.facebook.com/Twoone-103646042401175">Twoone</a>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <div class="sb-twitter sb-it">
+                                <h4 class="sb-title">Tweet to us</h4>
+                                <div class="slick-tw">
+                                    <div class="tweet item" id="599202861751410688">
+                                    </div>
+                                    <div class="tweet item" id="297462728598122498">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .ratingStar {
+        cursor: pointer;
+    }
+    .star-rating {
+        color: gold;
+        display: inline-block;
+        font-size: 2em;
+        position: relative;
+        transform: translate(-6px);
+    }
+
+</style>
+<script src="~/js/jquery.js"></script>
+<script type="text/javascript">
+    var clickedFlag = false;
+    var currentValue = 0;
+    function toDefault() {
+        $(".ratingStar[data-value=" + currentValue + "]").removeClass("ion-ios-star-outline").addClass("ion-ios-star").prevAll("i.ratingStar").removeClass("ion-ios-star-outline").addClass("ion-ios-star")
+        $(".ratingStar[data-value=" + currentValue + "]").nextAll("i.ratingStar").removeClass("ion-ios-star").addClass("ion-ios-star-outline")
+    }
+    $(".ratingStar").mouseover(function () {
+        $(this).removeClass("ion-ios-star-outline").addClass("ion-ios-star").prevAll("i.ratingStar").removeClass("ion-ios-star-outline").addClass("ion-ios-star")
+        $("title").text(currentValue)
+    });
+    $(".ratingStar").mouseout(function () {
+        /*$(this).removeClass("ion-ios-star").addClass("ion-ios-star-outline").prevAll("i.ratingStar").removeClass("ion-ios-star").addClass("ion-ios-star-outline")*/
+        toDefault()
+    });
+    $("#ratingDiv").mouseout(function () {
+        if (!clickedFlag) {
+            $(".ratingStar").removeClass("ion-ios-star").addClass("ion-ios-star-outline")
+        }
+        
+    });
+    $(".ratingStar").click(function () {
+        let starNum = this.getAttribute("data-value")
+        currentValue = Number(starNum)  
+        toDefault()
+        clickedFlag = true;
+        /*$(".ratingStar").unbind("mouseout mouseover click")*//*.css("cursor", "pointer")*/;
+        $("#starForm").attr("value", starNum)
+        $("#starForm").text(starNum)
+        @*var url = "/Home/SendRating?r=" + $(this).attr("data-value") + "&s=5&id=@Model&url=@url";
+        $.post(url, null, function (data) {
+            $("#lblResult").html(data);
+        });*@
+    });
+    //$("#lblResult").ajaxStart(function () {
+    //    $("#lblResult").html("Processing ....");
+    //});
+    //$("#lblResult").ajaxError(function () {
+    //    $("#lblResult").html("<br />Error occured.");
+    //});
+</script>

@@ -1,0 +1,231 @@
+﻿@model IEnumerable<MovieWeb.Models.Phim>
+
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            <div class="social-link">
+                <p>Theo dõi chúng tôi: </p>
+                <a href="https://www.facebook.com/Twoone-103646042401175"><i class="ion-social-facebook"></i></a>
+                <a href="https://www.facebook.com/Twoone-103646042401175"><i class="ion-social-twitter"></i></a>
+                <a href="https://www.facebook.com/Twoone-103646042401175"><i class="ion-social-googleplus"></i></a>
+                <a href="https://www.facebook.com/Twoone-103646042401175"><i class="ion-social-youtube"></i></a>
+            </div>
+            <div class="slick-multiItemSlider">
+                @Html.Action("SlideTopView", "Movie")
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="movie-items">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8">
+                <div class="title-hd">
+                    <h2>Phim lẻ</h2>
+                    <a href="@Url.Action("MovieGrid", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
+                </div>
+                <div class="tabs">
+                    <ul class="tab-links">
+                        <li class="active"><a href="#tab1">#Phổ biến</a></li>
+                        <li><a href="#tab2"> #Sắp chiếu</a></li>
+                        <li><a href="#tab3">  #Yêu thích nhất  </a></li>
+                        <li><a href="#tab4"> #Xem nhiều nhất</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab1" class="tab active">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @Html.Action("SlideMovieNew", "Movie")
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @Html.Action("SlideTopView", "Movie")
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab3" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @Html.Action("SlideMovieNew", "Movie")
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab4" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @Html.Action("SlideTopView", "Movie")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-hd">
+                    <h2>Phim đề suất cho bạn</h2>
+                    <a href="@Url.Action("MovieGrid", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
+                </div>
+                <div class="tabs">
+                    <div class="tab-content">
+
+                        <div id="tab22" class="tab active">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @Html.Action("SlideTopView", "Movie")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <div class="ads">
+                        <img src="~/Content/Logo.png" alt="" width="336" height="296">
+                    </div>
+                    <div class="celebrities">
+                        <h4 class="sb-title">Diễn viên yêu thích</h4>
+                        @Html.Action("TC_TTPhimTDV", "Movie", new { id = 2 })
+                        <a href="@Url.Action("MovieGrid", "Movie")" class="btn">Tất cả diễn viên<i class="ion-ios-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="trailers">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-12">
+                <div class="title-hd">
+                    <h2>Phim sắp ra mắt</h2>
+                    <a href="@Url.Action("MovieGird", "Movie")" class="viewall">Xem tất cả<i class="ion-ios-arrow-right"></i></a>
+                </div>
+                <div class="videos">
+                    <div class="slider-for-2 video-ft">
+                        <div>
+                            <iframe class="item-video" src="" data-src="https://www.youtube.com/embed/4hZi5QaMBFc"></iframe>
+                        </div>
+                        <div>
+                            <iframe class="item-video" src="" data-src="https://www.youtube.com/embed/jwD04NsnLLg"></iframe>
+                        </div>
+                        <div>
+                            <iframe class="item-video" src="" data-src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
+                        </div>
+                        <div>
+                            <iframe class="item-video" src="" data-src="https://www.youtube.com/embed/H8oSvldAGfg"></iframe>
+                        </div>
+                        <div>
+                            <iframe class="item-video" src="" data-src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
+                        </div>
+                    </div>
+                    <div class="slider-nav-2 thumb-ft">
+                        @foreach (var item in Model)
+                        {
+                            <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">
+                                <div class="item">
+                                    <div class="trailer-infor">
+                                        <h4 class="desc">@item.TenPhim</h4>
+                                        <p>@item.ThoiLuong phút</p>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- latest new v1 section-->
+<div class="latestnew">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8">
+                <div class="ads">
+                    <img src="~/images/banner-ads.jpg" alt="" style=" width:728px; height:106px">
+                </div>
+                <div class="title-hd">
+                    <h2>Tóm tắt phim hay</h2>
+                </div>
+                <div class="tabs">
+                    <div class="tab-content">
+                        <div id="tab31" class="tab active">
+                            <div class="row">
+                                <div class="blog-item-style-1">
+                                    <img src="~/Content/MoviePosters/a(1).jpg" alt="" style="width: 170px; height: 250px ">
+                                    <div class="blog-it-infor">
+                                        <h3><a href="#">And Then I Go</a></h3>
+                                        <span class="time">13 hours ago</span>
+                                        <p>Exclusive: In the cruel world of junior high, Edwin suffers in a state of anxiety and alienation alongside his only friend, Flake. Misunderstood by their families and demoralized at school daily, their fury simmers quietly until an idea for vengeance offers them a terrifying release. Based on the acclaimed novel "Project X" by Jim Shepard, this unflinching look at adolescence explores how the powerful bonds of childhood friendship and search for belonging can become a matter of life or death.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="morenew">
+                    <div class="title-hd">
+                        <h3>Nhiều tóm tắt hơn</h3>
+                        <a href="@Url.Action("MovieList", "Movie")" class="viewall">Xem tất cả tóm tắt<i class="ion-ios-arrow-right"></i></a>
+                    </div>
+                    <div class="more-items">
+                        <div class="left">
+                            @foreach (var item in Model.Take(3))
+                            {
+                                <div class="more-it">
+                                    <h6><a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">@item.TenPhim</a></h6>
+                                    <span class="time">@item.NoiDungPhimTomTat</span>
+                                </div>
+                            }
+                        </div>
+                        <div class="right">
+                            @foreach (var item in Model.Take(3))
+                            {
+                                <div class="more-it">
+                                    <h6><a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">@item.TenPhim</a></h6>
+                                    <span class="time">@item.NoiDungPhimTomTat</span>
+                                </div>
+                            }   
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=689125921801226&autoLogAppEvents=1" nonce="W9mqCUoY"></script>
+                    <div class="sb-facebook sb-it">
+                        <h4 class="sb-title">Facebook của Twoone</h4>
+                        <div class="fb-page" data-href="https://www.facebook.com/Twoone-103646042401175" data-tabs="Twoone" data-width="300" data-height="315" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                            <blockquote cite="https://www.facebook.com/Twoone-103646042401175" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/Twoone-103646042401175">Twoone</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="sb-twitter sb-it">
+                        <h4 class="sb-title">Tweet của Twoone</h4>
+                        <div class="slick-tw">
+                            <div class="tweet item" id="599202861751410688">
+                            </div>
+                            <div class="tweet item" id="297462728598122498">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end of latest new v1 section-->

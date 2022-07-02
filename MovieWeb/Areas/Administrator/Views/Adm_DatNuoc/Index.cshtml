@@ -1,0 +1,46 @@
+﻿@model PagedList.IPagedList<MovieWeb.Models.DatNuoc>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<h2>Quản lý quốc gia</h2>
+<div class="container">
+
+    <p>
+        @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Mã nước
+            </th>
+            <th>
+                Tên nước
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaNuoc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenNuoc)
+                </td>
+                <td>
+                    @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaNuoc }, null, new { @class = "btn btn-success" })
+                    @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaNuoc }, null, new { @class = "btn btn-info" })
+                    @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaNuoc }, null, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Adm_DatNuoc", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>

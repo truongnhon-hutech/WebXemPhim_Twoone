@@ -1,0 +1,54 @@
+﻿@model PagedList.IPagedList<MovieWeb.Models.DanhGiaPhim>
+@using PagedList.Mvc
+<div class="topbar-filter">
+    <p>Found <span>@Model.Count reviews</span> in total</p>
+    <label>Filter by:</label>
+    <select>
+        <option value="popularity">Popularity Descending</option>
+        <option value="popularity">Popularity Ascending</option>
+        <option value="rating">Rating Descending</option>
+        <option value="rating">Rating Ascending</option>
+        <option value="date">Release date Descending</option>
+        <option value="date">Release date Ascending</option>
+    </select>
+</div>
+@foreach (var item in Model)
+{
+    <div class="mv-user-review-item">
+        <div class="user-infor">
+            <img src="~/Content/sample/@item.NguoiDung.HinhAnhNguoiDung" alt="" width="15" height="15">
+            <div>
+                <h3>
+                    @item.NguoiDung.HoTen
+                </h3>
+                <div class="no-star">
+                    @for (var star = 1; star <= 5; star++)
+                    {
+                        if (star <= item.SoSao)
+                        {
+                            <i class="ion-ios-star"></i>
+                        }
+                        else
+                        {
+                            <i class="ion-ios-star-outline"></i>
+                        }
+                    }
+
+                </div>
+                <p class="time">
+                    @item.ThoiGianBinhLuan
+                </p>
+            </div>
+        </div>
+        <p>
+            @Html.Raw(item.NoiDungBinhLuan)
+        </p>
+    </div>
+}
+<br />
+<div class="text-right">
+
+    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+</div>
+@Html.PagedListPager(Model, page => Url.Action("WatchingMovie", "Movie",
+    new { id = Model[0].MaPhim, page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

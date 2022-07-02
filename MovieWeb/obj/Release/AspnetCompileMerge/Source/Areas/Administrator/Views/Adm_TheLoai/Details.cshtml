@@ -1,0 +1,30 @@
+﻿@model MovieWeb.Models.TheLoai
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+
+        <h3 class="box-title">Thông tin</h3>
+        <div class="table-responsive">
+            <table class="table table-striped table-product">
+                <tbody>
+                    <tr>
+                        <td>Mã thể loại</td>
+                        <td>@Html.DisplayFor(model => model.MaTheLoai)</td>
+                    </tr>
+                    <tr>
+                        <td>Tên thể loại</td>
+                        <td>@Html.DisplayFor(model => model.TenTheLoai)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTheLoai }) |
+    @Html.ActionLink("Quay lại danh sách", "Index")
+</p>

@@ -1,0 +1,32 @@
+﻿@model MovieWeb.Models.DatNuoc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="box-title">Thông tin tổng quan</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-product">
+                    <tbody>
+                        <tr>
+                            <td>Mã nước</td>
+                            <td>@Html.DisplayFor(model => model.MaNuoc)</td>
+                        </tr>
+                        <tr>
+                            <td>Tên nước</td>
+                            <td>@Html.DisplayFor(model => model.TenNuoc)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="form-actions my-3 no-color">
+        @Ajax.ActionLink("Xóa", "Delete", new { id = Model.MaNuoc }, null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+    </div>
+</div>

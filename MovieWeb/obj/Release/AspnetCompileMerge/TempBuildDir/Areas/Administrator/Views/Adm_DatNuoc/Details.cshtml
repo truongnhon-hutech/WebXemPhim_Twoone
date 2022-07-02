@@ -1,0 +1,32 @@
+﻿@model MovieWeb.Models.DatNuoc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="box-title">Thông tin tổng quan</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-product">
+                    <tbody>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.MaNuoc)</td>
+                            <td>@Html.DisplayFor(model => model.MaNuoc)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.TenNuoc)</td>
+                            <td>@Html.DisplayFor(model => model.TenNuoc)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaNuoc }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

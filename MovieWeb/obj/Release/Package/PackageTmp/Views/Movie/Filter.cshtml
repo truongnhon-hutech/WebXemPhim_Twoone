@@ -1,0 +1,124 @@
+﻿
+@using MovieWeb;
+@model dynamic
+@{
+    Layout = null;
+}
+<div class="searh-form">
+    <h4 class="sb-title">Tìm kiếm nâng cao</h4>
+    <form class="form-style-1" action="@Url.Action("SearchByFilter","Movie")">
+        <div class="row">
+            <div class="col-md-12 form-it">
+                <label>Tên phim</label>
+                <input type="text" placeholder="Gõ từ khoá" name="Ten">
+            </div>
+            <div class="col-md-12 form-it">
+                <label>Thể loại</label>
+                <div class="group-ip">
+                    <select name="theLoai">
+
+                        <option value="">--Chọn thể loại--</option>
+                        @foreach (var item in Model.TheLoais)
+                        {
+                            <option value="@item.MaTheLoai">@item.TenTheLoai</option>
+                        }
+
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-md-12 form-it">
+                <label>Quốc gia</label>
+                <div class="group-ip">
+                    <select name="datNuoc">
+
+                        <option value="">--Chọn quốc gia--</option>
+
+                        @foreach (var item in Model.DatNuocs)
+                        {
+                            <option value="@item.MaNuoc">@item.TenNuoc</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-md-12 form-it">
+                <label>Ngôn ngữ</label>
+                <div class="group-ip">
+                    <select name="ngonNgu">
+
+                        <option value="">--Chọn ngôn ngữ--</option>
+
+                        @foreach (var item in Model.NgonNgus)
+                        {
+                            <option value="@item.MaNgonNgu">@item.TenNgonNgu</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-md-12 form-it">
+                <label>IMDB</label>
+
+                <select name="dIMDB">
+                    <option value="">--IMDB--</option>
+                    <option value="1">1-2</option>
+                    <option value="2">2-3</option>
+                    <option value="3">3-4</option>
+                    <option value="4">4-5</option>
+                    <option value="5">5-6</option>
+                    <option value="6">6-7</option>
+                    <option value="7">7-8</option>
+                    <option value="8">8-9</option>
+                    <option value="9">9-10</option>
+                </select>
+
+            </div>
+            <div class="col-md-12 form-it">
+                <label>Release Year</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <select name="From">
+                            <option value="">From</option>
+                            @for (int i = 1900; i <= DateTime.Now.Year; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select name="To">
+                            <option value="">To</option>
+                            @for (int i = 1900; i <= DateTime.Now.Year; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <input class="submit" type="submit" value="submit">
+            </div>
+        </div>
+    </form>
+</div>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v14.0&appId=689125921801226&autoLogAppEvents=1" nonce="W9mqCUoY"></script>
+<div class="sb-facebook sb-it">
+    <h4 class="sb-title">Facebook của Twoone</h4>
+    <div class="fb-page" data-href="https://www.facebook.com/Twoone-103646042401175" data-tabs="Twoone" data-width="300" data-height="315" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/Twoone-103646042401175" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/Twoone-103646042401175">Twoone</a>
+        </blockquote>
+    </div>
+</div>
+<div class="sb-twitter sb-it">
+    <h4 class="sb-title">Tweet to us</h4>
+    <div class="slick-tw">
+        <div class="tweet item" id="599202861751410688">
+        </div>
+        <div class="tweet item" id="297462728598122498">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1>Trang liên hệ</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="@Url.Action("Home","Movie")" style="font-weight: bold; }">Trang chủ</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> Liên hệ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-single">
+    <div class="container">
+        @*<div class="row ipad-width">*@
+        <div class="row text-center">
+            <div class="blog-detail-ct">
+                <p>
+                    Trụ sở: Thành phố Hồ Chí Minh<br />
+                    Email hỗ trợ: Support@gmail.com<br />
+                    Số điện thoại hỗ trợ: 0123456789
+                </p>
+            </div>
+            <div>
+                <iframe width="800" height="400" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=800&cp=10.798156284841298~106.70537029799982&lvl=19&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                </iframe>
+                <div style="white-space: nowrap; text-align: center;padding: 6px 0">
+                    <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=10.798156284841298~106.70537029799982&amp;sty=r&amp;lvl=19&amp;FORM=MBEDLD" style="color: white">Xem toàn bộ</a> &nbsp; | &nbsp;
+                    <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=10.798156284841298~106.70537029799982&amp;sty=r&amp;lvl=19&amp;rtp=~pos.10.798156284841298_106.70537029799982____&amp;FORM=MBEDLD" style="color: white">Dẫn đường</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*<div id="myMap" style="position:relative; width:600px; height:400px;"></div>*@
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    var map = null;
+
+    function LoadMap() {
+        map = new Microsoft.Maps.Map('#myMap', {
+            credentials: "ArJWXGThSXUrCD2anwbJB6Vg8Tn9GEV6c4A7764wFkiLiUibpUGqBlTgyeMPAuv3"
+        });
+        var url = "/Movie/Contact";
+        $.getJSON(url, null, function (data) {
+            var pins = [];
+
+            $.each(data, function (index, LocationData) {
+                var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(
+                    LocationData.latitude,
+                    LocationData.longitude));
+
+                pins.push(pushpin);
+            });
+
+            map.entities.push(pins);
+
+            map.setView({
+                zoom: 4, center: new Microsoft.Maps.Location(23.505353, 78.485292)
+            });
+        });
+    }
+    $('#btnShowLocations').click(function () {
+        var url = "/Movie/Contact";
+        $.getJSON(url, null, function (data) {
+            var pins = [];
+
+            $.each(data, function (index, LocationData) {
+                var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(
+                    LocationData.latitude,
+                    LocationData.longitude));
+
+                pins.push(pushpin);
+            });
+
+            map.entities.push(pins);
+
+            map.setView({
+                zoom: 4, center: new Microsoft.Maps.Location(23.505353, 78.485292)
+            });
+        });
+    });
+</script>
+<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=LoadMap" async defer></script>

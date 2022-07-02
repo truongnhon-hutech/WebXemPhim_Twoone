@@ -1,0 +1,10 @@
+﻿@foreach (var item in Model)
+{
+    <div class="cast-it">
+        <div class="cast-left">
+            <img src="~/Content/sample/@item.DienVien.HinhAnhDienVien" alt="" style="width: 40px; height:40px">
+            <a href="@Url.Action("ActorDetail", "Movie", new { id = item.DienVien.MaDienVien})">@item.DienVien.TenDienVien</a>
+        </div>
+        <p>@item.TenVaiDien</p>
+    </div>
+}

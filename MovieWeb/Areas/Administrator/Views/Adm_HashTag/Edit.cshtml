@@ -1,0 +1,36 @@
+﻿@model MovieWeb.Models.HashTag
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sửa</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>HashTag</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaHashTag)
+
+        <div class="form-group">
+            Tên HashTag
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTag, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTag, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-success" />
+                @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+            </div>
+        </div>
+    </div>
+}
+

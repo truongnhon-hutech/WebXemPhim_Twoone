@@ -1,0 +1,40 @@
+﻿@model MovieWeb.Models.DienVien
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DienVien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDienVien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDienVien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnhDienVien)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HinhAnhDienVien)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

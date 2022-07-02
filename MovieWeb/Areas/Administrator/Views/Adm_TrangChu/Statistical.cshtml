@@ -1,0 +1,252 @@
+﻿@{
+    ViewBag.Title = "Statistical";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<h2>Thông kê doanh thu</h2>
+
+@using (Html.BeginForm("Statistical", "Adm_TrangChu", FormMethod.Get))
+{
+    <div class="row">
+        <span>Chọn năm: </span>
+        <select name="Year">
+            <option value="@ViewBag.year">@ViewBag.year</option>
+            @for (int i = 2021; i <= DateTime.Now.Year; i++)
+            {
+                <option value="@i">@i</option>
+            }
+
+        </select>
+        <input type="submit" />
+    </div>
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
+
+@if (ViewBag.month == null)
+{
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div>
+                <canvas id="doanhthunam"></canvas>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+            <div>
+                <canvas id="dangkymoinam"></canvas>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <table id="DTTG">
+                <tr>
+                    <th>Gói</th>
+                    <th>Doanh thu</th>
+                </tr>
+                @foreach (var item in ViewBag.DTTG)
+                {
+                    <tr>
+                        <td>@item.Item1</td>
+                        <td style="text-align: center">@item.Item2</td>
+                    </tr>
+                }
+            </table>
+            <iframe id="txtArea1" style="display:none"></iframe>
+            <br />
+            <button id="btnExport" onclick="fnExcelReport('DTTG');"> EXPORT </button>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+            <table id="DKTG">
+                <tr>
+                    <th>Gói</th>
+                    <th style="width: 85px">Đăng ký</th>
+                </tr>
+                @foreach (var item in ViewBag.DKTG)
+                {
+                    <tr>
+                        <td>@item.Item1</td>
+                        <td style="text-align: center">@item.Item2</td>
+                    </tr>
+                }
+            </table>
+            <br />
+            <button id="btnExport" onclick="fnExcelReport('DKTG');"> EXPORT </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <div>
+                <canvas id="doanhthutungthang"></canvas>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-11">
+            <table id="DTTT">
+                <tr>
+                    <td></td>
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <td>Tháng @i</td>
+                    }
+                </tr>
+                @foreach (var item in ViewBag.DTTT)
+                {
+                    <tr>
+                        @foreach (var item2 in item)
+                        {
+                            <th>@item2</th>
+                        }
+                    </tr>
+                }
+            </table>
+            <br />
+            <button id="btnExport" onclick="fnExcelReport('DTTT');"> EXPORT </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <div>
+                <canvas id="dangkymoitungthang"></canvas>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-md-11">
+            <table id="DKTT">
+                <tr>
+                    <td></td>
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        <td>Tháng @i</td>
+                    }
+                </tr>
+                @foreach (var item in ViewBag.DKTT)
+                {
+                    <tr>
+                        @foreach (var item2 in item)
+                        {
+                            <th>@item2</th>
+                        }
+                    </tr>
+                }
+            </table>
+            <br />
+            <button id="btnExport" onclick="fnExcelReport('DKTT');"> EXPORT </button>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <canvas id="doanhthutheothang"></canvas>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            var month = "@ViewBag.month";
+
+           @* try {
+               var cth = document.getElementById('doanhthutheothang').getContext('2d');
+                var model4 = @Html.Raw(Json.Encode(Model.doanhthutheothang));
+                var doanhthutheothang = new Chart(cth, model4);
+            }
+            catch (err) {
+                alert("hi")
+            }*@
+            @*if (month && month != "") {
+                alert(month)
+                var cth = document.getElementById('doanhthutheothang').getContext('2d');
+                var model4 = @Html.Raw(Json.Encode(Model.doanhthutheothang));
+                var doanhthutheothang = new Chart(cth, model4);
+            }*@
+            var kkk = @Html.Raw(Json.Encode(ViewBag.DTTT));
+            console.log(kkk)
+            var ctx = document.getElementById('doanhthunam').getContext('2d');
+            var model = @Html.Raw(Json.Encode(ViewBag.doanhthunam));
+            console.log(model)
+            var doanhthunam = new Chart(ctx, model)
+
+            var cty = document.getElementById('dangkymoinam').getContext('2d');
+            var model1 = @Html.Raw(Json.Encode(ViewBag.dangkymoinam));
+
+            var doanhthunam = new Chart(cty, model1)
+
+            var ctz = document.getElementById('doanhthutungthang').getContext('2d');
+            var model2 = @Html.Raw(Json.Encode(ViewBag.doanhthutungthang));
+            var doanhthutungthang = new Chart(ctz, model2);
+
+            var ctk = document.getElementById('dangkymoitungthang').getContext('2d');
+            var model3 = @Html.Raw(Json.Encode(ViewBag.dangkymoitungthang));
+            var dangkymoitungthang = new Chart(ctk, model3);
+
+
+        });
+
+
+    </script>
+    <script type="text/javascript">
+        function fnExcelReport(e) {
+            var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+            var textRange; var j = 0;
+            tab = document.getElementById(e); // id of table
+
+            for (j = 0; j < tab.rows.length; j++) {
+                tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+                //tab_text=tab_text+"</tr>";
+            }
+
+            tab_text = tab_text + "</table>";
+            tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+            tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+            tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf("MSIE ");
+
+            if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+            {
+                txtArea1.document.open("txt/html", "replace");
+                txtArea1.document.write(tab_text);
+                txtArea1.document.close();
+                txtArea1.focus();
+                sa = txtArea1.document.execCommand("SaveAs", true, "Say Thanks to Sumit.xls");
+            }
+            else                 //other browser not tested on IE 11
+                sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent("\uFEFF"+tab_text));
+
+            return (sa);
+        }
+    </script>
+}

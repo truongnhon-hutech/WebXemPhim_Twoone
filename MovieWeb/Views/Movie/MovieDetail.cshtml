@@ -1,0 +1,202 @@
+﻿@{
+    ViewBag.Title = "Chi tiết phim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero mv-single-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <h1> movie listing - list</h1>
+                <ul class="breadcumb">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <span class="ion-ios-arrow-right"></span> movie listing</li>
+                </ul> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single movie-single movie_single">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="movie-img sticky-sb">
+                    <a href="@Url.Action("WatchingMovie", "Movie", new { id = Model.MaPhim })">
+                        <img src="~/Content/MoviePosters/@Model.HinhBanner" alt="">
+                    </a>
+                    <div class="movie-btn">
+                        <div class="btn-transform transform-vertical red">
+                            <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Xem Trailer</a></div>
+                            <div><a href="https://www.youtube.com/embed/@Model.TrailerPhim"
+                                    class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>
+                            </div>
+                        </div>
+                        <div class="btn-transform transform-vertical">
+                            <div><a href="@Url.Action("WatchingMovie", "Movie", new { id = Model.MaPhim })" class="item item-1 yellowbtn"> <i class="ion-card"></i> Xem phim</a></div>
+                            <div><a href="@Url.Action("WatchingMovie", "Movie", new { id = Model.MaPhim })" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="movie-single-ct main-content">
+                    <h1 class="bd-hd">@Model.TenPhim<span> @Model.NgaySanXuat.Year</span></h1>
+                    <div class="social-btn">
+                        <a href="#" class="parent-btn"><i class="ion-heart"></i> Thêm vào danh sách</a>
+                        <div class="hover-bnt">
+                            <a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>Chia sẽ</a>
+                            <div class="hvr-item">
+                                <a href="https://www.facebook.com/Twoone-103646042401175" class="hvr-grow"><i class="ion-social-facebook"></i></a>
+                                <a href="https://www.facebook.com/Twoone-103646042401175" class="hvr-grow"><i class="ion-social-twitter"></i></a>
+                                <a href="https://www.facebook.com/Twoone-103646042401175" class="hvr-grow"><i class="ion-social-googleplus"></i></a>
+                                <a href="https://www.facebook.com/Twoone-103646042401175" class="hvr-grow"><i class="ion-social-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movie-rate">
+                        <div class="rate">
+                            
+                            <i class="ion-android-star"></i>
+                            <p>
+                                <span>@Model.SoSaoTrungBinh</span> /5<br>
+                                <span class="rv">@Model.SoLuotDanhGia Reviews</span>
+                            </p>
+                        </div>
+                        <div class="rate-star">
+                            <p>Điểm IMDb: </p>
+                            <p class="rv">@Model.DiemIMDB/10</p> 
+                            <img src="~/images/imdb-logo.png" width="70" /><br>
+                        </div>
+                    </div>
+                    <div class="movie-tabs">
+                        <div class="tabs">
+                            <ul class="tab-links tabs-mv">
+                                <li class="active"><a href="#overview">Tổng quan</a></li>
+                                <li><a href="#reviews"> Đánh giá</a></li>
+                                <li><a href="#cast"> Đoàn phim</a></li>
+                                @* <li><a href="#media"> Video</a></li> *@
+                                <li><a href="#moviesrelated"> Phim tương tự</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="overview" class="tab active">
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-12 col-xs-12">
+                                            <div class="title-hd-sm">
+                                                <h4>Nội dung phim: </h4>
+                                            </div>
+                                            <div class="mvcast-item">
+                                                <p>@Model.NoiDungPhim</p>
+                                            </div>
+                                            <div class="title-hd-sm">
+                                                <h4>Diễn viên</h4>
+                                                <a href="#" class="time">
+                                                    Toàn bộ diễn viên<i class="ion-ios-arrow-right"></i>
+                                                </a>
+                                            </div>
+                                            <!-- movie cast -->
+                                            <div class="mvcast-item">
+                                                @Html.Action("TTDienVienTP", "Movie", new { id = Model.MaPhim })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-xs-12 col-sm-12">
+                                            <div class="sb-it">
+                                                <h6>Đạo diễn </h6>
+                                                <p><a href="#">Joss Whedon</a></p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Kịch bản: </h6>
+                                                <p><a href="#">Joss Whedon,</a> <a href="#">Stan Lee</a></p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Ngôi sao: </h6>
+                                                @Html.Action("TTDienVienTP", "Movie", new { id = Model.MaPhim })
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Thể Loại:</h6>
+                                                <p><a href="#">Action, </a> <a href="#"> Sci-Fi,</a> <a
+                                                        href="#">Adventure</a></p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Ngày Sản Xuât:</h6>
+                                                <p>@Model.NgaySanXuat.Day / @Model.NgaySanXuat.Month / @Model.NgaySanXuat.Year</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>Thời lượng:</h6>
+                                                <p>@Model.ThoiLuong phút</p>
+                                            </div>
+                                            <div class="sb-it">
+                                                <h6>HashTag:</h6>
+                                                
+                                                <p class="tags">
+                                                    <span class="time"><a href="#">superhero</a></span>
+                                                    <span class="time"><a href="#">marvel universe</a></span>
+                                                    <span class="time"><a href="#">comic</a></span>
+                                                    <span class="time"><a href="#">blockbuster</a></span>
+                                                    <span class="time"><a href="#">final battle</a></span>
+                                                </p>
+                                            </div>
+                                            <div class="ads">
+                                                <img src="~/Content/Logo.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="reviews" class="tab review">
+                                    <div class="row">
+                                        
+                                        @Html.Action("Comment", "Movie", new { movieid = Model.MaPhim })
+
+                                    </div>
+                                </div>
+                                <div id="cast" class="tab">
+                                    <div class="row">
+                                        <h3>Diễn viên</h3>
+                                        <h2>@Model.TenPhim</h2>
+                                        <!-- //== -->
+                                        <div class="title-hd-sm">
+                                            <h4>Directors & Credit Writers</h4>
+                                        </div>
+                                        <div class="mvcast-item">
+                                            @Html.Action("TTDienVienTP", "Movie", new { id = Model.MaPhim })
+                                        </div>
+                                        <!-- //== -->
+                                        <div class="title-hd-sm">
+                                            <h4>Directors & Credit Writers</h4>
+                                        </div>
+                                        <div class="mvcast-item">
+                                            @Html.Action("TTDienVienTP", "Movie", new { id = Model.MaPhim })
+                                        </div>
+                                        <!-- //== -->
+                                        <div class="title-hd-sm">
+                                            <h4>Cast</h4>
+                                        </div>
+                                        <div class="mvcast-item">
+                                            @Html.Action("TTDienVienTP", "Movie", new { id = Model.MaPhim })
+                                        </div>
+                                        <!-- //== -->
+                                        <div class="title-hd-sm">
+                                            <h4>Produced by</h4>
+                                        </div>
+                                        <div class="mvcast-item">
+                                            @Html.Action("TTDienVienTP", "Movie", new { id = Model.MaPhim })
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div id="moviesrelated" class="tab">
+                                    <div class="row">
+                                        <h3>Phim tương tự</h3>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            @Html.Action("SimilarMovie", "Movie", new { movieid = Model.MaPhim })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

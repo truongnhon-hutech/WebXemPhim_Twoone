@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MovieWeb.Models.Phim>
+@foreach (var item in Model)
+{
+    <div class="movie-item-style-2" style="align-items: flex-start;">
+         <img src="~/Content/MoviePosters/@item.HinhBanner" alt="">
+        <div class="mv-item-infor">
+            <br />
+            <h6>
+                <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">
+                    @item.TenPhim
+                    <span>(@item.NgaySanXuat.Value.Year)</span>
+                </a>
+            </h6>
+            <p class="rate">
+                <i class="ion-android-star"></i><span>8.1</span>
+                /10
+            </p>
+            <p class="describe">
+                @item.NoiDungPhimTomTat
+            </p>
+            <p class="run-time">
+                Thời lượng: @item.ThoiLuong phút.
+            </p>
+            <p>
+                <span>
+                    Ngày phát hành:
+                    @item.NgaySanXuat.Value.Date.ToString("dd/MM/yyyy")
+                </span>
+
+            </p>
+            <p>
+                Đạo diễn:
+                @foreach (var d in @item.DaoDiens)
+                {
+                    <a href="#">@d.TenDaoDien</a>
+                }
+            </p>
+            <p>
+                Diễn viên:
+                @foreach (var dv in item.DienVienDongPhims)
+                {
+                    <a href="#">@dv.DienVien.TenDienVien</a>
+                }
+
+            </p>
+        </div>
+    </div>
+}

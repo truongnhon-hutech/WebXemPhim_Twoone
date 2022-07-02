@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<MovieWeb.Models.Phim>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> Danh sách phim - danh sách</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="@Url.Action("Home","Movie")">Trang chủ</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> ShowPhim</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="topbar-filter">
+                    <p>Found <span>1,608 movies</span> in total</p>
+                    <label>Sort by:</label>
+                    <select>
+                        <option value="popularity">Popularity Descending</option>
+                        <option value="popularity">Popularity Ascending</option>
+                        <option value="rating">Rating Descending</option>
+                        <option value="rating">Rating Ascending</option>
+                        <option value="date">Release date Descending</option>
+                        <option value="date">Release date Ascending</option>
+                    </select>
+                    <a href="@Url.Action("MovieList", "Movie")"><i class="ion-ios-list-outline "></i></a>
+                    <a href="@Url.Action("MovieGrid", "Movie")"><i class="ion-grid active"></i></a>
+
+                </div>
+
+                <div class="flex-wrap-movielist">
+                    @foreach (var item in Model)
+                    {
+                        <div class="movie-item-style-2 movie-item-style-1">
+                            <img src="~/Content/MoviePosters/@item.HinhBanner" alt="">
+                            <div class="hvr-inner">
+                                <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})"> Xem thêm <i class="ion-android-arrow-dropright"></i> </a>
+                            </div>
+                            <div class="mv-item-infor">
+
+                                <h6><a href="#">@item.TenPhim</a></h6>
+                                <p class="rate"><i class="ion-android-star"></i><span>@item.DiemIMDB</span> /10</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="topbar-filter">
+                    <label style="color: white">Movies per page:</label>
+
+                    <span style="color: white">Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount:</span>
+                    <div class="pagination2">
+                        @Html.PagedListPager(Model, page => Url.Action("ShowPhim", "Movie", new { page = page, keyword = ViewBag.Default }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+                    </div>
+                </div>
+
+            </div>
+            @*banner bên phải*@
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar">
+
+                   @* <a href="~/Views/Movie/Filter.cshtml">~/Views/Movie/Filter.cshtml</a>*@
+                    @Html.Action("Filter","Movie")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

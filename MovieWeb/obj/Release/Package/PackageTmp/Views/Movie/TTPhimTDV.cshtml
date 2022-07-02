@@ -1,0 +1,33 @@
+﻿
+
+<div class="topbar-filter">
+    <p>Tìm thấy <span>@Model.Count phim</span> trên tổng số 3041 phim</p>
+    <label>Filter by:</label>
+    <select>
+        <option value="popularity">Popularity Descending</option>
+        <option value="popularity">Popularity Ascending</option>
+        <option value="rating">Rating Descending</option>
+        <option value="rating">Rating Ascending</option>
+        <option value="date">Release date Descending</option>
+        <option value="date">Release date Ascending</option>
+    </select>
+</div>
+<!-- movie cast -->
+
+<div class="mvcast-item">
+    @foreach (var item in Model)
+    {
+        <div class="cast-it">
+            <div class="cast-left cebleb-film">
+                <img src="images/uploads/film1.jpg" alt="" style="border-radius: 33px">
+                <div>
+                    <a href="#">@item.Phim.TenPhim </a>
+                    <p class="time">@item.TenVaiDien</p>
+                </div>
+
+            </div>
+            <p>...  @item.Phim.NgaySanXuat.Year</p>
+        </div>
+    }
+
+</div>

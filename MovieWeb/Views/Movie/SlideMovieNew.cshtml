@@ -1,0 +1,26 @@
+﻿@foreach (var item in Model)
+{
+    <div class="slide-it">
+        <div class="movie-item">
+            <div class="mv-img">
+                <img src="~/Content/MoviePosters/@item.HinhBanner" alt="" width="285" height="437">
+            </div>
+            <div class="hvr-inner">
+                <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">
+                    Xem thêm
+                </a>
+            </div>
+            <div class="title-in">
+                <div class="cate">
+                    @*<span class="blue"><a href="#">Sci-fi</a></span>*@
+                    @foreach (var x in item.TheLoais)
+                    {
+                        <span class="blue"><a href="@Url.Action("MovieToGenre","Movie", new {id = x.MaTheLoai})">@x.TenTheLoai</a></span>
+                    }
+                </div>
+                <h6><a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim})">@item.TenPhim</a></h6>
+                <p><i class="ion-android-star"></i><span>@item.DiemIMDB</span> /10</p>
+            </div>
+        </div>
+    </div>
+}

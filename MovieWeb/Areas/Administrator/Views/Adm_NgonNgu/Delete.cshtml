@@ -1,0 +1,39 @@
+﻿@model MovieWeb.Models.NgonNgu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h3>Bạn có thật sự muốn xóa?</h3>
+    <div class="card">
+        <div class="card-body">
+
+            <h3 class="box-title">Thông tin</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-product">
+                    <tbody>
+                        <tr>
+                            <td>Mã ngôn ngữ</td>
+                            <td>@Html.DisplayFor(model => model.MaNgonNgu)</td>
+                        </tr>
+                        <tr>
+                            <td>Tên ngôn ngữ</td>
+                            <td>@Html.DisplayFor(model => model.TenNgonNgu)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-danger" /> 
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+        </div>
+    }
+</div>

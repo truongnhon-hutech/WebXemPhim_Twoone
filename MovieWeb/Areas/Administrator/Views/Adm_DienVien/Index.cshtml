@@ -1,0 +1,58 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<MovieWeb.Models.DienVien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<h2>Diễn viên</h2>
+<div class="row">
+    @using (Html.BeginForm("Index", "Adm_DienVien", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" }))
+    {
+        <div class="input-group">
+            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control bg-light border-0 small", placeholder = "Tìm theo tên..." })
+            <div class="input-group-append">
+                <button class="btn btn-primary"
+                        type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    }
+    <p>
+        @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+</div>
+
+<div class="row justify-content-center">
+    @foreach (var item in Model)
+    {
+        <div class="card col-lg-3 col-md-4 col-sm-6 col-xs-12 m-4 p-3">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <strong>@item.TenDienVien</strong>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Mã diễn viên: </strong>@item.MaDienVien</p>
+                    <p><img height="200" src="~/Content/sample/@item.HinhAnhDienVien" alt="hinhDienVien"></p>
+
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pullright">
+                        <div class="Datmua">
+                            @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaDienVien }, null, new { @class = "btn btn-success" })
+                            @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaDienVien }, null, new { @class = "btn btn-info" })
+                            @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaDienVien }, null, new { @class = "btn btn-danger" })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter }))

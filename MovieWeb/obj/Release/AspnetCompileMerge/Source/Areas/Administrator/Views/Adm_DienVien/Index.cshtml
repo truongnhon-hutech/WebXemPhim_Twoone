@@ -1,0 +1,51 @@
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<MovieWeb.Models.DienVien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<h2>Diễn viên</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm("Index", "Adm_DienVien", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="card col-lg-2 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    <strong>@item.TenDienVien</strong>
+                </div>
+                <div class="panel-body">
+                    <p><strong>Mã diễn viên: </strong>@item.MaDienVien</p>
+                    <p><img height="200" src="@item.HinhAnhDienVien" alt="hinhDienVien"></p>
+
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pullright">
+                        <div class="Datmua">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MaDienVien, @class = "btn btn-success" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MaDienVien }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MaDienVien })
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page,  currentFilter = ViewBag.CurrentFilter }))

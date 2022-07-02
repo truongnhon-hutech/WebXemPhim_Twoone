@@ -1,0 +1,31 @@
+﻿@model MovieWeb.Models.DaoDien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+
+<div class="container">
+    <div class="card">
+        <h3 class="card-header">Mã đạo diễn @Model.MaDaoDien</h3>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-6">
+                    <div class="white-box text-center"><img src="~/Content/sample/@Model.HinhAnhDaoDien" class="img-responsive" width="200" height="260"></div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-6">
+                    <h4 class="box-title mt-5">Tên đạo diễn: </h4>
+                    <p>@Model.TenDaoDien</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-actions my-3 no-color">
+        @Ajax.ActionLink("Sửa", "Edit", new { id = Model.MaDaoDien }, null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+    </div>
+</div>

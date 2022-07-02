@@ -1,0 +1,32 @@
+﻿@foreach (var item in Model)
+{
+    <li class="item-a">
+        <div class="box">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="@Url.Action("MovieDetail", "Movie", new { id = item.MaPhim}) "
+                        style="text-decoration: none ">
+                            <img class="card-img-top" src="~/Content/MoviePosters/@item.HinhBanner" alt="HinhBanner" />
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <ul style="list-style-type: none; color: #47d147">
+                                        <li>
+                                            <h5 class="fw-bolder" style="color: white"> @item.TenPhim</h5>
+                                        </li>
+                                        <li>
+                                            @item.DiemIMDB
+                                        </li>
+                                        <li>
+                                            @item.LuotXem 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+}

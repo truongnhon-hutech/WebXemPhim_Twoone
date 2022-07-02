@@ -1,0 +1,89 @@
+﻿@model PagedList.IPagedList<MovieWeb.Models.NguoiDung>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<h1>QUẢN LÝ NGƯỜI DÙNG</h1>
+
+@using (Html.BeginForm("Index", "Adm_NguoiDung", FormMethod.Get, new { @class = "d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-2 mw-100 navbar-search" }))
+{
+    <div class="input-group">
+        @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control bg-light border-0 small", placeholder = "Tìm theo tên..." })
+        <div class="input-group-append">
+            <button class="btn btn-primary"
+                    type="submit">
+                <i class="fas fa-search fa-sm"></i>
+            </button>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Họ Tên", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Ngày sinh
+        </th>
+        <th>
+            Tài khoản
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @if (item.GioiTinh == "M")
+                {
+                    <p>Nam</p>
+                }
+                else if (item.GioiTinh == "F")
+                {
+                    <p>Nữ</p>
+                }
+                else
+                {
+                    <p>Không xác định</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @item.NgaySinh.Value.ToShortDateString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan)
+            </td>
+            <td>
+                @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaNguoiDung }, null, new { @class = "btn btn-info" })
+                @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaNguoiDung }, null, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", "Adm_NguoiDung", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
