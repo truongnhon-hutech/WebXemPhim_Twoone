@@ -85,11 +85,12 @@
                                 @Html.Action("Language", "Movie")
 
                             </ul>
-                        </li><li class="dropdown first">
+                        </li>
+                        <li class="dropdown first">
                             <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown" href="@Url.Action("ActorGrid", "Movie")">
                                 Diễn viên
                             </a>
-                                
+
                         </li>
                         <li class="dropdown first">
                             <a class="btn btn-default dropdown-toggle lv1" href="@Url.Action("Contact" ,"Movie" )">
@@ -103,7 +104,8 @@
                         </li>
                     </ul>
                     @Html.Partial("LoginPartial")
-                    
+                    @*@Html.RenderPartial("LoginPartial");*@
+
                 </div>
                 <!-- /.navbar-collapse -->
             </nav>
@@ -120,6 +122,20 @@
     <!-- END | Header -->
 
     @RenderBody()
+<a href="#" id="back-to-top" class="btn btn-outline-primary"> Lên đầu trang &#160;<i class="ion-ios-arrow-thin-up"></i></a>
+    <style>
+        #back-to-top {
+            position: sticky;
+            float: right;
+            bottom: 20px;
+            margin-right: 10px;
+            place-self: end;
+            margin-top: calc(100vh + var(--offset));
+            @*style*@
+            color: white;
+            font-weight: 300;
+        }
+    </style>
 
     <!-- footer section-->
     <footer class="ht-footer">
@@ -134,15 +150,15 @@
                     <p>Số điện thoại: <a href="#">(+84) 123 456 789 JQK</a></p>
                 </div>
                 <div class="flex-child-ft item2">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li>
-                            <a href="@Url.Action("About","Movie")">About</a>
-                        </li>
-                        
-                        <li><a href="@Url.Action("Contact","Movie")">Contact</a></li>
-                        <li><a href="#">Help Center</a></li>
-                    </ul>
+                    <h4>Địa chỉ</h4>
+                    <div>
+                        <iframe width="200" height="150" frameborder="0" src="https://www.bing.com/maps/embed?h=400&w=800&cp=10.798156284841298~106.70537029799982&lvl=19&typ=d&sty=r&src=SHELL&FORM=MBEDV8" scrolling="no">
+                        </iframe>
+                        <div style="white-space: nowrap; text-align: center;padding: 6px 0">
+                            <a id="largeMapLink" target="_blank" href="https://www.bing.com/maps?cp=10.798156284841298~106.70537029799982&amp;sty=r&amp;lvl=19&amp;FORM=MBEDLD" style="color: white" class="btn btn-warning">Xem toàn bộ</a> &nbsp; &nbsp;
+                            <a id="dirMapLink" target="_blank" href="https://www.bing.com/maps/directions?cp=10.798156284841298~106.70537029799982&amp;sty=r&amp;lvl=19&amp;rtp=~pos.10.798156284841298_106.70537029799982____&amp;FORM=MBEDLD" style="color: white" class="btn btn-primary">Dẫn đường</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex-child-ft item3">
                     <h4>Chính sách</h4>
@@ -151,6 +167,7 @@
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Security</a></li>
                     </ul>
+                    @*<div id="google_translate_element"></div>*@
                 </div>
                 <div class="flex-child-ft item4">
                     <h4>Tài Khoản</h4>
@@ -162,25 +179,23 @@
                     </ul>
                 </div>
                 <div class="flex-child-ft item5">
-                    <h4>Newsletter</h4>
-                    <p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+                    <h4>Nhận thông báo</h4>
+                    <p>Đăng ký để nhận những thông<br>  báo mới nhất từ Twoone.</p>
                     <form action="#">
-                        <input type="text" placeholder="Enter your email...">
+                        <input type="text" placeholder="Nhập Email của bạn...">
                     </form>
-                    <a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+                    <a href="#" class="btn">Đăng ký ngay <i class="ion-ios-arrow-forward"></i></a>
                 </div>
             </div>
         </div>
         <div class="ft-copyright">
             <div class="ft-left">
-                <p>© 2022 Twoone.</p>
+                <p>Copyright &copy; Dev team: Phạm Đức Tài - Võ Thương Trường Nhơn - Phạm Hồng  Thái</p>
             </div>
-            <div class="backtotop">
-                <p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
-            </div>
+
         </div>
     </footer>
-   
+
     <script src="~/js/jquery.js"></script>
     <script src="~/js/plugins.js"></script>
     <script src="~/js/plugins2.js"></script>
@@ -199,5 +214,19 @@
             menubar: false
         });
     </script>
+    @*<script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    { pageLanguage: 'en' },
+                    'google_translate_element'
+                );
+            }
+        </script>
+
+        <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
+            cb=googleTranslateElementInit">
+        </script>*@
+
+    <script src="//code.tidio.co/incvhb7bukkdgzpkw5m28i383htztlrb.js" async></script>
 </body>
 </html>

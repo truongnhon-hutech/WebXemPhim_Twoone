@@ -28,15 +28,15 @@
         <div class="row ipad-width2">
             <div class="col-md-9 col-sm-12 col-xs-12">
                 <div class="topbar-filter">
-                    <p>Tìm thấy <span>@Model.Count phim</span> trên tổng số 3041 phim</p>
-                    <label>Sắp xếp theo:</label>
+                    <p>Tìm thấy <span>@Model.Count</span> phim</p>
+                    <label>Lọc theo :</label>
                     <select>
-                        <option value="popularity">Sắp xếp giảm dần</option>
-                        <option value="popularity">Popularity Ascending</option>
-                        <option value="rating">Rating Descending</option>
-                        <option value="rating">Rating Ascending</option>
-                        <option value="date">Release date Descending</option>
-                        <option value="date">Release date Ascending</option>
+                        <option value="popularity">Độ phổ biến giảm</option>
+                        <option value="popularity">Độ phổ biến tăng</option>
+                        <option value="rating">Lượt đánh giả giảm</option>
+                        <option value="rating">Lượt đánh gía tăng</option>
+                        <option value="date">Ngày phát hành tăng</option>
+                        <option value="date">Ngày phát hành giảm</option>
                     </select>
                     <a href="@Url.Action("MovieList", "Movie")"><i class="ion-ios-list-outline "></i></a>
                     <a href="@Url.Action("MovieGrid", "Movie")"><i class="ion-grid active"></i></a>
@@ -45,7 +45,7 @@
                     @foreach (var item in Model)
                     {
                         <div class="ceb-item">
-                            <a href="celebritysingle.html"><img src="~/Content/sample/@item.HinhAnhDienVien" alt="" width="270" height="400"></a>
+                            <a href="@Url.Action("ActorDetail", "Movie", new { id = item.MaDienVien})"><img src="~/Content/sample/@item.HinhAnhDienVien" alt="" width="270" height="400"></a>
                             <div class="ceb-infor">
                                 <h2><a href="@Url.Action("ActorDetail", "Movie", new { id = item.MaDienVien})">@item.TenDienVien</a></h2>
                             </div>

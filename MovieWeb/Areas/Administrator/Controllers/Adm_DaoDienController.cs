@@ -61,17 +61,13 @@ namespace MovieWeb.Areas.Administrator.Controllers
         {
             return View();
         }
-
-        // POST: Administrator/Adm_DaoDien/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaDaoDien,TenDaoDien,HinhAnhDaoDien")] DaoDien daoDien, HttpPostedFileBase fileupload)
         {
 
             var fileName = Path.GetFileName(fileupload.FileName);
-            var path = Path.Combine(Server.MapPath("~/Content"), fileName);
+            var path = Path.Combine(Server.MapPath("~/Content/sample"), fileName);
             if (System.IO.File.Exists(path))
             {
                 ViewBag.ThongBao = "Hình ảnh đã tồn tại";

@@ -37,7 +37,7 @@ namespace MovieWeb.Models
                 public float[] data;
                 public bool fill = false;
                 public string borderColor ;
-                public float tension = 0.1f;
+                public float tension = 0.5f;
                 private static readonly Random rand = new Random();
 
                 private string GetRandomColour()

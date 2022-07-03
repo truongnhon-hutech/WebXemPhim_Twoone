@@ -188,6 +188,9 @@
     <Content Include="Content\bootstrap-4.5.3-dist\css\bootstrap.min.css" />
     <Content Include="Content\bootstrap-4.5.3-dist\js\bootstrap.js" />
     <Content Include="Content\bootstrap-4.5.3-dist\js\bootstrap.min.js" />
+    <Content Include="Content\nhon.jpg" />
+    <Content Include="Content\tai.jpg" />
+    <Content Include="Content\thai.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -6213,7 +6216,6 @@
     <Content Include="Views\Movie\Language.cshtml" />
     <Content Include="Views\Movie\Country.cshtml" />
     <Content Include="Views\Movie\Genre.cshtml" />
-    <Content Include="Views\Movie\About.cshtml" />
     <Content Include="Views\Movie\Contact.cshtml" />
     <Content Include="Views\Movie\Home.cshtml" />
     <Content Include="Views\Movie\TC_TTPhimTDV.cshtml" />

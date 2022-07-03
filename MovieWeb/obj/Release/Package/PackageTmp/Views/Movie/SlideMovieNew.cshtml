@@ -12,7 +12,6 @@
             </div>
             <div class="title-in">
                 <div class="cate">
-                    @*<span class="blue"><a href="#">Sci-fi</a></span>*@
                     @foreach (var x in item.TheLoais)
                     {
                         <span class="blue"><a href="@Url.Action("MovieToGenre","Movie", new {id = x.MaTheLoai})">@x.TenTheLoai</a></span>

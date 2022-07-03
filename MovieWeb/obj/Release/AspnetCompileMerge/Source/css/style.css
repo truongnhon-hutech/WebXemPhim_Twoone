@@ -7939,7 +7939,7 @@ header .top-search select,
 header .top-search input {
   height: 46px;
   border: none;
-  background-color: #0f2133 !important;
+  background-color: rgb(42 66 104 / 43%) !important;
   font-family: 'Nunito', sans-serif;
 /*  font-size: #abb7c4;*/
   color: #abb7c4;

@@ -69,13 +69,7 @@ namespace MovieWeb.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-            var locations = new List<Models.Locations>()
-            {
-                new Models.Locations(12.505353,55.335292),
-                 new Models.Locations(13.505353,55.485292),
-                  new Models.Locations(13.655353,55.665292)
-            };
-            //return Json(locations, JsonRequestBehavior.AllowGet);
+           
             return View();
         }
         // Menu

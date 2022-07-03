@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -67,8 +68,21 @@ namespace MovieWeb.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDienVien,TenDienVien,HinhAnhDienVien")] DienVien dienVien)
+        public ActionResult Create([Bind(Include = "MaDienVien,TenDienVien,HinhAnhDienVien")] DienVien dienVien, HttpPostedFileBase fileupload)
         {
+
+            var fileName = Path.GetFileName(fileupload.FileName);
+            var path = Path.Combine(Server.MapPath("~/Content/sample"), fileName);
+            if (System.IO.File.Exists(path))
+            {
+                ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+            }
+            else
+            {
+                fileupload.SaveAs(path);
+            }
+            dienVien.HinhAnhDienVien = fileName;
+            
             if (ModelState.IsValid)
             {
                 db.DienViens.Add(dienVien);

@@ -102,14 +102,7 @@ namespace MovieWeb.Areas.Administrator.Controllers
             {
                 products.Rows.Add(item.TenPhim,item.NgaySanXuat,item.NoiDungPhimTomTat,item.DiemIMDB,item.LuotXem,item.ThoiLuong,item.HinhBanner);
             }
-          /*  products.Rows.Add(1, "product 1 tài");
-            products.Rows.Add(2, "product 2");
-            products.Rows.Add(3, "product 3");
-            products.Rows.Add(4, "product 4");
-            products.Rows.Add(5, "product 5");
-            products.Rows.Add(6, "product 6");
-            products.Rows.Add(7, "product 7");*/
-
+         
 
             var grid = new GridView();
             grid.DataSource = products;
@@ -161,17 +154,20 @@ namespace MovieWeb.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaPhim,TenPhim,NgaySanXuat,NoiDungPhim,NoiDungPhimTomTat,DiemIMDB,LuotXem,ThoiLuong,HinhBanner,LinkPhim,LinkPhimVip,TrailerPhim,MaNuoc,MaNgonNgu")] Phim phim, HttpPostedFileBase fileupload)
         {
-            var fileName = Path.GetFileName(fileupload.FileName);
-            var path = Path.Combine(Server.MapPath("~/Content"), fileName);
-            if (System.IO.File.Exists(path))
+            if (fileupload != null)
             {
-                ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                var fileName = Path.GetFileName(fileupload.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/sample"), fileName);
+                if (System.IO.File.Exists(path))
+                {
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                }
+                else
+                {
+                    fileupload.SaveAs(path);
+                }
+                phim.HinhBanner = fileName;
             }
-            else
-            {
-                fileupload.SaveAs(path);
-            }
-            phim.HinhBanner = fileName; 
             if (ModelState.IsValid)
             {
                 db.Phims.Add(phim);

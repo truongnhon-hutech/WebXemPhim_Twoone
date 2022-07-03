@@ -72,9 +72,6 @@ namespace MovieWeb.Areas.Administrator.Controllers
             return View();
         }
 
-        // POST: Administrator/Adm_NguoiDung/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaNguoiDung,HoTen,GioiTinh,Email,SDT,NgaySinh,TaiKhoan,MatKhau")] NguoiDung nguoiDung)
@@ -104,9 +101,6 @@ namespace MovieWeb.Areas.Administrator.Controllers
             return View(nguoiDung);
         }
 
-        // POST: Administrator/Adm_NguoiDung/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MaNguoiDung,HoTen,GioiTinh,Email,SDT,NgaySinh,TaiKhoan,MatKhau")] NguoiDung nguoiDung)

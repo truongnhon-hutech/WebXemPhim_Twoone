@@ -13,6 +13,7 @@ using System.Data;
 using System.Globalization;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace MovieWeb.Controllers
 {
@@ -117,24 +118,52 @@ namespace MovieWeb.Controllers
             }
             return Register();
         }
+        private string requestCookie(string name)
+        {
+            HttpCookie nameCookie = Request.Cookies[name];
+            if (nameCookie != null)
+                return nameCookie.Value.ToString();
+            else return null;
+        }
+        private void writeCookie(string name,string value)
+        {
+            HttpCookie nameCookie = new HttpCookie(name);
+            nameCookie.Value = value;
+            nameCookie.Expires = DateTime.Now.AddDays(30);
+            Response.Cookies.Add(nameCookie);
+        }
+        private void disableCookie(string name)
+        {
+            HttpCookie nameCookie = new HttpCookie(name);
+            nameCookie.Expires = DateTime.Now.AddDays(-1);
+        }
         [HttpGet]
         public ActionResult Login()
         {
+            string tendn = requestCookie("tendn");
+            if(!string.IsNullOrEmpty(tendn))
+            {
+                ViewBag.tendn = tendn;
+                ViewBag.matkhau = requestCookie("matkhau");
+            }
             Session.Clear();
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(FormCollection collection)
+        public ActionResult Login(string Tendn,string MatKhau,bool GhiNho)
         {
 
             MovieWebContext db = new MovieWebContext();
-            var tendn = collection["Tendn"];
-            var matkhau = Encode(collection["MatKhau"]);
-            var ghinho = collection["GhiNho"];
+            var tendn = Tendn;
+            var luumatkhau = MatKhau;
+            var matkhau = Encode(luumatkhau);
+            var ghinho = GhiNho;
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Err1"] = "Tên đăng nhập không được bỏ trống!";
+                
+                
                 return RedirectToAction("Login", "User");
             }
             else if (String.IsNullOrEmpty(matkhau))
@@ -154,6 +183,17 @@ namespace MovieWeb.Controllers
                     if (phieuDangKy != null && DateTime.Compare((DateTime)phieuDangKy.NgayHetHan, DateTime.Now) > 0)
                         Session["VIP"] = phieuDangKy.MaGoiDV;
                     else Session["VIP"] = null;
+                    if (ghinho)
+                    {
+                        writeCookie("tendn", tendn);
+                        writeCookie("matkhau", luumatkhau);
+                    }
+                    else
+                    {
+                        disableCookie("tendn");
+                        disableCookie("matkhau");
+                    }
+
                     return RedirectToAction("Home", "Movie");
                 }
                 else
@@ -266,19 +306,15 @@ namespace MovieWeb.Controllers
                 return RedirectToAction("Login");
             var k = Session["TaiKhoan"].ToString();
             NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == k);
-         /*   if (i == 1) { ViewData["Success"] = "ok con de"; }
-            else if (i == 2) { ViewData["Success"] = "no no boy"; }*/
             return View(nguoiDung);
         }
-       /* public ActionResult ChangeInfor()
-        {
-            return PartialView();
-        }*/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ChangeInfor(FormCollection collection)
         {
             MovieWebContext db = new MovieWebContext();
+
+           
             var HoTen = collection["HoTen"];
             var NgaySinh = collection["NgaySinh"];
             var GioiTinh = collection["Gioitinh"];

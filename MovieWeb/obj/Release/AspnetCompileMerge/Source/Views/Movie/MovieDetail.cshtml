@@ -7,24 +7,33 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <!-- <h1> movie listing - list</h1>
-                <ul class="breadcumb">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li> <span class="ion-ios-arrow-right"></span> movie listing</li>
-                </ul> -->
+               
             </div>
         </div>
     </div>
 </div>
-
+<style>
+    .zoom {
+        background: #222f3e;
+        border-radius: 0.5em;
+        border: 5px solid rgba(255, 255, 255, .05);
+        transition: transform .25s, visibility .25s ease-in;
+    }
+    .zoom:hover {
+        transform: scale(1.2);
+    }
+</style>
 <div class="page-single movie-single movie_single">
     <div class="container">
         <div class="row ipad-width2">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="movie-img sticky-sb">
                     <a href="@Url.Action("WatchingMovie", "Movie", new { id = Model.MaPhim })">
-                        <img src="~/Content/MoviePosters/@Model.HinhBanner" alt="">
+                        <div class="zoom">
+                            <img src="~/Content/MoviePosters/@Model.HinhBanner" alt="">
+                        </div>
                     </a>
+                    
                     <div class="movie-btn">
                         <div class="btn-transform transform-vertical red">
                             <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Xem Trailer</a></div>
@@ -65,6 +74,7 @@
                         </div>
                         <div class="rate-star">
                             <p>Điểm IMDb: </p>
+                            
                             <p class="rv">@Model.DiemIMDB/10</p> 
                             <img src="~/images/imdb-logo.png" width="70" /><br>
                         </div>
@@ -75,7 +85,6 @@
                                 <li class="active"><a href="#overview">Tổng quan</a></li>
                                 <li><a href="#reviews"> Đánh giá</a></li>
                                 <li><a href="#cast"> Đoàn phim</a></li>
-                                @* <li><a href="#media"> Video</a></li> *@
                                 <li><a href="#moviesrelated"> Phim tương tự</a></li>
                             </ul>
                             <div class="tab-content">
