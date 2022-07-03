@@ -157,7 +157,7 @@ namespace MovieWeb.Areas.Administrator.Controllers
             if (fileupload != null)
             {
                 var fileName = Path.GetFileName(fileupload.FileName);
-                var path = Path.Combine(Server.MapPath("~/Content/sample"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content/MoviePosters"), fileName);
                 if (System.IO.File.Exists(path))
                 {
                     ViewBag.ThongBao = "Hình ảnh đã tồn tại";

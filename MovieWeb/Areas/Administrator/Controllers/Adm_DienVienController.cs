@@ -70,26 +70,26 @@ namespace MovieWeb.Areas.Administrator.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaDienVien,TenDienVien,HinhAnhDienVien")] DienVien dienVien, HttpPostedFileBase fileupload)
         {
-
-            var fileName = Path.GetFileName(fileupload.FileName);
-            var path = Path.Combine(Server.MapPath("~/Content/sample"), fileName);
-            if (System.IO.File.Exists(path))
+            if(fileupload != null)
             {
-                ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                var fileName = Path.GetFileName(fileupload.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/sample"), fileName);
+                if (System.IO.File.Exists(path))
+                {
+                    ViewBag.ThongBao = "Hình ảnh đã tồn tại";
+                }
+                else
+                {
+                    fileupload.SaveAs(path);
+                }
+                dienVien.HinhAnhDienVien = fileName;
             }
-            else
-            {
-                fileupload.SaveAs(path);
-            }
-            dienVien.HinhAnhDienVien = fileName;
-            
             if (ModelState.IsValid)
             {
                 db.DienViens.Add(dienVien);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(dienVien);
         }
 
