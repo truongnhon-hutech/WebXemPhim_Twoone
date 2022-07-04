@@ -170,8 +170,7 @@ namespace MovieWeb.Controllers
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Err1"] = "Tên đăng nhập không được bỏ trống!";
-                
-                
+
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
@@ -206,9 +205,7 @@ namespace MovieWeb.Controllers
                 }
                 else
                 {
-                ViewData["Err2"] = "Sai mật khẩu hoặc tên đăng nhập";
-                    return RedirectToAction("Login", "User");
-
+                    ViewData["Err2"] = "Sai mật khẩu hoặc tên đăng nhập";
                 }
                 
             }

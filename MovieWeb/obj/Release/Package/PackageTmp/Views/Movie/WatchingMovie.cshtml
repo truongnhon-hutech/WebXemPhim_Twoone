@@ -107,12 +107,11 @@
                             </h1>
                             <div class="social-btn">
                                 <a href="#" class="parent-btn">
-                                    <i class="ion-heart"></i> Add to
-                                    Favorite
+                                    <i class="ion-heart"></i> Thêm vào danh sách yêu thích
                                 </a>
                                 <div class="hover-bnt">
                                     <a href="#" class="parent-btn">
-                                        <i class="ion-android-share-alt"></i>share
+                                        <i class="ion-android-share-alt"></i>Chia sẻ
                                     </a>
                                     <div class="hvr-item">
                                         <a href="#" class="hvr-grow">
@@ -154,7 +153,7 @@
                                 </div>
                             </div>
                             <div class="movie-tabs">
-                                @Html.Raw(ViewData["Loi"])
+                                <div style="color: red; font-size:30px">@ViewData["Loi"]</div>
                                 @if(Session["TaiKhoan"] != null)
             {
                                 <div class="form-style-1">
@@ -179,7 +178,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <input class="submit" type="submit" value="Xác nhận">
+                                                <input disabled id="submit-button" class="submit" type="submit" value="Xác nhận">
                                             </div>
                                         </div>
                                     }
@@ -263,6 +262,8 @@
     });
     $(".ratingStar").click(function () {
         let starNum = this.getAttribute("data-value")
+        $('#submit-button').prop("disabled", false)
+
         currentValue = Number(starNum)  
         toDefault()
         clickedFlag = true;

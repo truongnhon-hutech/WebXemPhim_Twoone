@@ -151,7 +151,7 @@ namespace MovieWeb.Controllers
             var nguoiDung = data.NguoiDungs.FirstOrDefault(nd => nd.TaiKhoan == tenTaiKhoan.ToString());
             if (soSao == 0)
             {
-                ViewData["Loi"] = "<script language='javascript' type='text/javascript'>alert('Bạn chưa đánh giá!');</script>";
+                ViewData["Loi"] = "Bạn chưa đánh giá!";
             }
             else
             {
