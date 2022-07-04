@@ -30,12 +30,14 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    <br />
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Xóa" class="btn btn-danger" />
+            @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
         </div>
     }
 </div>

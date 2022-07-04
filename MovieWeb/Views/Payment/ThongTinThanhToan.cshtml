@@ -186,7 +186,7 @@
                         @*<h4>Thông tin thanh toán</h4>*@
                         <p><label>Tên khách hàng :</label> @Model.User.HoTen</p>
                         <p><label>Gói dịch vụ :</label> <strong>@Model.GoiDichVu.TenGoiDV</strong></p>
-                        <p><label>Số tiền :</label> <strong>@Model.GoiDichVu.GiaGoiDV</strong></p>
+                        <p><label>Số tiền :</label> <strong>@Convert.ToDecimal(@Model.GoiDichVu.GiaGoiDV).ToString("#,##0") VND</strong></p>
                         <div class="form-group">
                             <label>Ngân hàng</label>
                             @Html.DropDownList("cboBankCode", listItems, new { @class = "btn dropdown-toggle" })

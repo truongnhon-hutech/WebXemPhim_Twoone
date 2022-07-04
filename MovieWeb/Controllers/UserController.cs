@@ -56,6 +56,7 @@ namespace MovieWeb.Controllers
             var NhapLaiMatKhau = collection["NhapLaiMatKhau"];
             var captcha = collection["captcha"];
             var Email = collection["Email"];
+            var NgaySinh = collection["NgaySinh"];
             var trungMail = db.NguoiDungs.FirstOrDefault(x => x.Email == Email);
             var trungTenDN = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == TaiKhoan);
             if (String.IsNullOrEmpty(HoTen))
@@ -69,6 +70,10 @@ namespace MovieWeb.Controllers
             else if (String.IsNullOrEmpty(GioiTinh))
             {
                 ViewData["Err2"] = "Phải nhập giới tính";
+            }
+            else if (String.IsNullOrEmpty(NgaySinh))
+            {
+                ViewData["Err9"] = "Ngày sinh không hợp lệ";
             }
             else if (String.IsNullOrEmpty(Email))
             {
@@ -103,6 +108,7 @@ namespace MovieWeb.Controllers
             {
                 ViewData["Err8"] = "Captcha validation is required.";
             }
+            
             else
             {
                 //Gán giá trị cho đối tượng được tạo mới (kh)
@@ -113,7 +119,7 @@ namespace MovieWeb.Controllers
                 nd.SDT = SDT;
                 nd.TaiKhoan = TaiKhoan;
                 nd.MatKhau = Encode(MatKhau);
-                nd.NgaySinh = Convert.ToDateTime("08/03/2002");
+                nd.NgaySinh = Convert.ToDateTime(NgaySinh);
                 db.NguoiDungs.Add(nd);
                 db.SaveChanges();
                 return RedirectToAction("Login", "User");
@@ -155,15 +161,12 @@ namespace MovieWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string Tendn,string MatKhau,bool GhiNho)
         {
-
             MovieWebContext db = new MovieWebContext();
             var tendn = Tendn;
             var luumatkhau = MatKhau;
             var matkhau = Encode(luumatkhau);
             var ghinho = GhiNho;
-            var Avatar = db.NguoiDungs.FirstOrDefault(n => n.TaiKhoan == tendn);
-            Session["HinhAnh"] = Avatar.HinhAnhNguoiDung;
-            Session["TenNguoiDung"] = Avatar.HoTen;
+
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Err1"] = "Tên đăng nhập không được bỏ trống!";
@@ -182,6 +185,8 @@ namespace MovieWeb.Controllers
                 {
                     ViewBag.Thongbao = "Đăng nhập thành công!";
                     Session["TaiKhoan"] = N.TaiKhoan;
+                    Session["HinhAnh"] = N.HinhAnhNguoiDung;
+                    Session["TenNguoiDung"] = N.HoTen;
                     PhieuDangKy phieuDangKy = db.PhieuDangKies.OrderByDescending(x => x.NgayHetHan).FirstOrDefault(x => x.MaNguoiDung == N.MaNguoiDung);
                     if (phieuDangKy != null && DateTime.Compare((DateTime)phieuDangKy.NgayHetHan, DateTime.Now) > 0)
                         Session["VIP"] = phieuDangKy.MaGoiDV;

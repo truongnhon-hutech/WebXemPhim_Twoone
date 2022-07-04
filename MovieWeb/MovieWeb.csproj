@@ -142,6 +142,7 @@
     <Compile Include="Areas\Administrator\Controllers\Adm_DaoDienController.cs" />
     <Compile Include="Areas\Administrator\Controllers\Adm_DatNuocController.cs" />
     <Compile Include="Areas\Administrator\Controllers\Adm_DienVienController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\Adm_GoiDichVuController.cs" />
     <Compile Include="Areas\Administrator\Controllers\Adm_HashTagController.cs" />
     <Compile Include="Areas\Administrator\Controllers\Adm_NgonNguController.cs" />
     <Compile Include="Areas\Administrator\Controllers\Adm_NguoiDungController.cs" />
@@ -6170,6 +6171,11 @@
     <Content Include="Areas\Administrator\Views\Adm_TheLoai\Details.cshtml" />
     <Content Include="Areas\Administrator\Views\Adm_TheLoai\Edit.cshtml" />
     <Content Include="Areas\Administrator\Views\Adm_TheLoai\Index.cshtml" />
+    <Content Include="Areas\Administrator\Views\Adm_GoiDichVu\Create.cshtml" />
+    <Content Include="Areas\Administrator\Views\Adm_GoiDichVu\Delete.cshtml" />
+    <Content Include="Areas\Administrator\Views\Adm_GoiDichVu\Details.cshtml" />
+    <Content Include="Areas\Administrator\Views\Adm_GoiDichVu\Edit.cshtml" />
+    <Content Include="Areas\Administrator\Views\Adm_GoiDichVu\Index.cshtml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

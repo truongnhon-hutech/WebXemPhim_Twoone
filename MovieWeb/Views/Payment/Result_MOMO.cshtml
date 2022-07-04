@@ -1,19 +1,19 @@
 ﻿
+
 @{
-    Layout = null;
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Result_MOMO</title>
-</head>
-<body>
-    <div>
-        Giao dich thanh cong
+<div class="page-single-2">
+    <div class="container">
+        <div class="row">
+            <div class="middle-content">
+                <a href="index.html"><img class="md-logo" src="images/logo1.png" alt=""></a>
+                <img src="images/uploads/err-img.png" alt="">
+                <h1>Giao dịch thành công</h1>
+                <a href="@Url.Action("Home","Movie")" class="redbtn">Trở về trang chủ</a>
+            </div>
+        </div>
     </div>
-    <div>@Html.ActionLink("Quay lại trang chủ", "Home", "Movie")</div>
-</body>
-</html>
+</div>

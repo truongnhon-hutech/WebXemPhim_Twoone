@@ -25,6 +25,6 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTheLoai }) |
-    @Html.ActionLink("Quay lại danh sách", "Index")
+    @Ajax.ActionLink("Sửa", "Edit", new { id = Model.MaTheLoai }, null, new { @class = "btn btn-danger" })
+    @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
 </p>

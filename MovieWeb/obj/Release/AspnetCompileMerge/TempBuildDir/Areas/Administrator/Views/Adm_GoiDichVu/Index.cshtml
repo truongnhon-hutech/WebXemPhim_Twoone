@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MovieWeb.Models.GoiDichVu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>QUẢN LÝ GÓI DỊCH VỤ</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên gói dịch vụ
+        </th>
+        <th>
+            Giá gói dịch vụ
+        </th>
+        <th width="500">
+            Mô tả
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {  
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenGoiDV)
+        </td>
+        <td>
+            @Convert.ToDecimal(item.GiaGoiDV).ToString("#,##0")
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTaGoiDichVu)
+        </td>
+        <td>
+            @Ajax.ActionLink("Sửa", "Edit", new { id = item.MaGoiDV }, null, new { @class = "btn btn-success" })
+            @Ajax.ActionLink("Chi tiết", "Details", new { id = item.MaGoiDV }, null, new { @class = "btn btn-info my-2", style = "font-size: 12px" })
+            @Ajax.ActionLink("Xóa", "Delete", new { id = item.MaGoiDV }, null, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

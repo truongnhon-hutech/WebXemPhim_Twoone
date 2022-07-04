@@ -1,0 +1,35 @@
+﻿@model MovieWeb.Models.GoiDichVu
+
+@{
+    Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <h3 class="box-title">Thông tin</h3>
+    <div class="table-responsive">
+        <table class="table table-striped table-product">
+            <tbody>
+                <tr>
+                    <td>Mã gói dịch vụ</td>
+                    <td>@Html.DisplayFor(model => model.MaGoiDV)</td>
+                </tr>
+                <tr>
+                    <td>Tên gói dịch vụ</td>
+                    <td>@Html.DisplayFor(model => model.TenGoiDV)</td>
+                </tr>
+                <tr>
+                    <td>Giá gói dịch vụ</td>
+                    <td>@Html.DisplayFor(model => model.GiaGoiDV)</td>
+                </tr>
+                <tr>
+                    <td>Mô tả</td>
+                    <td>@Html.DisplayFor(model => model.MoTaGoiDichVu)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p>
+        @Ajax.ActionLink("Sửa", "Edit", new { id = Model.MaGoiDV }, null, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Trở về", "Index", null, new { @class = "btn btn-dark" })
+    </p>
+</div>
