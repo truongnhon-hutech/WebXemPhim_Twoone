@@ -6,14 +6,14 @@
         @Html.AntiForgeryToken()
         <li class="dropdown first" style="  padding: 10px 0; color: black; list-style-type: none" >
             <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown" >
-                <img class="img-profile rounded-circle" src="~/Content/nd1.jpg" style="width:50px; height: 50px; border-radius: 30px"/>
+                <img class="img-profile rounded-circle" src="~/Content/sample/@Session["HinhAnh"]" style="width:50px; height: 50px; border-radius: 30px"/>
                 <i class="fa fa-angle-down" aria-hidden="true"></i>
             </a>
             <ul class="dropdown-menu level1">
                 <li class="dropdown">
                     <a href="@Url.Action("ShowInfor","User")">
                         <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="color: purple ">
-                            @Session["TaiKhoan"]
+                            @Session["TenNguoiDung"]
                         </span>
                     </a>
                 </li>

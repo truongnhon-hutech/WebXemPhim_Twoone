@@ -1,5 +1,5 @@
 ﻿@model PagedList.IPagedList<MovieWeb.Models.Phim>
-@using PagedList.Mvc;
+@using PagedList.Mvc
 
 @{
     Layout = "~/Areas/Administrator/Views/Shared/_AdminLayout.cshtml";
@@ -56,9 +56,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TenPhim)
             </td>
-            <td width="190px">
-                @item.NgaySanXuat.Value.Day/ @item.NgaySanXuat.Value.Month/ @item.NgaySanXuat.Value.Year
-            </td>
+            @if (item.NgaySanXuat != null)
+            {
+                <td width="190px">
+
+                    @item.NgaySanXuat.Value.Day/ @item.NgaySanXuat.Value.Month / @item.NgaySanXuat.Value.Year
+                </td>
+            }
+            else
+                {
+                    <td width="190px">
+                        null
+                    </td>
+                }
             <td>
                 @Html.Raw(item.NoiDungPhimTomTat)
             </td>

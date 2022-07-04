@@ -182,6 +182,9 @@
     <Compile Include="VnPayLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\sample\nhon.jpg" />
+    <Content Include="Content\sample\tai.jpg" />
+    <Content Include="Content\sample\thai.png" />
     <Content Include="Areas\Administrator\all.min.css" />
     <Content Include="Content\all.min.css" />
     <Content Include="Content\bootstrap-4.5.3-dist\css\bootstrap.css" />
@@ -6228,6 +6231,7 @@
     <Content Include="Views\Movie\ActorDetail.cshtml" />
     <Content Include="Views\Movie\PageNotFound.cshtml" />
     <Content Include="Views\Movie\ActorGrid.cshtml" />
+    <Content Include="Views\User\AvatarImg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

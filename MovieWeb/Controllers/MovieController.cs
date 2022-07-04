@@ -171,6 +171,7 @@ namespace MovieWeb.Controllers
         public ActionResult Comment(int? movieid, int? page)
         {
             MovieWebContext data = new MovieWebContext();
+
             var ratingList = data.DanhGiaPhims.Where(n => n.MaPhim == movieid).ToList().OrderByDescending(a => a.ThoiGianBinhLuan).Take(100);
             int pageNumber = page ?? 1;
             int pageSize = 5;

@@ -72,10 +72,10 @@
                             <input class="btn btn-primary btn-user btn-block" id="btnSubmit" type="Submit" value="Đăng ký" />
                             <hr>
                             <a href="index.html" class="btn btn-google btn-user btn-block">
-                                 Đăng ký bằng Google
+                                Đăng ký bằng Google
                             </a>
                             <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                 Đăng ký bằng Facebook
+                                Đăng ký bằng Facebook
                             </a>
                         }
                         <hr>
@@ -84,6 +84,11 @@
                         </div>
                         <div class="text-center">
                             @Html.ActionLink("Đã có tài khoản ? Đăng nhập", "Login", new { @class = "small" })
+                        </div>
+                        <div class="text-center">
+                            <a href="@Url.Action( "Home", "Movie")">
+                                Quay về trang chủ
+                            </a>
                         </div>
                     </div>
                 </div>

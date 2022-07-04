@@ -14,6 +14,7 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.IO;
+using PagedList;
 
 namespace MovieWeb.Controllers
 {
@@ -61,6 +62,10 @@ namespace MovieWeb.Controllers
             {
                 ViewData["Err1"] = "Họ tên khách hàng không được để trống";
             }
+            else if (String.IsNullOrEmpty(SDT))
+            {
+                ViewData["Err4"] = "Số điện thoại không được bỏ trống";
+            }
             else if (String.IsNullOrEmpty(GioiTinh))
             {
                 ViewData["Err2"] = "Phải nhập giới tính";
@@ -73,10 +78,7 @@ namespace MovieWeb.Controllers
             {
                 ViewData["Err3"] = "Email này đã tồn tại";
             }
-            else if (String.IsNullOrEmpty(SDT))
-            {
-                ViewData["Err4"] = "Số điện thoại không được bỏ trống";
-            }
+            
             else if (String.IsNullOrEmpty(TaiKhoan))
             {
                 ViewData["Err5"] = "Phải nhập tên đăng nhập";
@@ -159,17 +161,18 @@ namespace MovieWeb.Controllers
             var luumatkhau = MatKhau;
             var matkhau = Encode(luumatkhau);
             var ghinho = GhiNho;
+            var Avatar = db.NguoiDungs.FirstOrDefault(n => n.TaiKhoan == tendn);
+            Session["HinhAnh"] = Avatar.HinhAnhNguoiDung;
+            Session["TenNguoiDung"] = Avatar.HoTen;
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Err1"] = "Tên đăng nhập không được bỏ trống!";
                 
                 
-                return RedirectToAction("Login", "User");
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
                 ViewData["Err2"] = "Mật khẩu không được bỏ trống!";
-                return RedirectToAction("Login", "User");
 
             }
             else
@@ -202,7 +205,9 @@ namespace MovieWeb.Controllers
                     return RedirectToAction("Login", "User");
 
                 }
+                
             }
+            return View();
 
            // return RedirectToAction("Home", "Movie");
         }
@@ -299,13 +304,23 @@ namespace MovieWeb.Controllers
                 return View();
             }
         }
-        public ActionResult ShowInfor()
+        public ActionResult ShowInfor(string mode,int? page)
         {
+            int pageNumber = (page ?? 1);
+            ViewBag.page = pageNumber;
             MovieWebContext db = new MovieWebContext();
             if (Session["TaiKhoan"] == null)
                 return RedirectToAction("Login");
             var k = Session["TaiKhoan"].ToString();
             NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == k);
+            if (string.IsNullOrEmpty(mode)) mode = null;
+            ViewBag.Mode = mode;
+            if (mode == null)
+                ViewBag.info = "active";
+            if (mode == "favorite")
+                ViewBag.favo = "active";
+            if (mode == "changepass")
+                ViewBag.pass = "active";
             return View(nguoiDung);
         }
         [HttpPost]
@@ -338,14 +353,14 @@ namespace MovieWeb.Controllers
             }
             return PartialView("ChangeInfor");
         }
-        public ActionResult ShowChangePass()
+        public ActionResult ChangePassword()
         {
             MovieWebContext db = new MovieWebContext();
             if (Session["TaiKhoan"] == null)
                 return RedirectToAction("Login");
             var k = Session["TaiKhoan"].ToString();
             NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == k);
-            return View(nguoiDung);
+            return PartialView(nguoiDung);
         }
 
         [HttpPost]
@@ -374,79 +389,30 @@ namespace MovieWeb.Controllers
             }
 
         }
-        /*public ActionResult RecentWatch()
-        {
-            MovieWebContext db = new MovieWebContext();
-            if (Session["TaiKhoan"] == null)
-                return RedirectToAction("Login");
-            var k = Session["TaiKhoan"].ToString();
-            NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == k);
-            List < DanhGiaPhim > list = db.DanhGiaPhims.Where(x => x.MaNguoiDung == nguoiDung.MaNguoiDung).ToList();
-            List<Phim> phims = db.Phims.ToList();
-            foreach(var danhGia in list)
-                foreach(var phim in phims)
-                    if(danhGia.MaPhim == phim.MaPhim && !nguoiDung.DaXem.Any(p=> p.MaPhim==phim.MaPhim))
-                {
-                    nguoiDung.DaXem.Add(phim);
-                }
-            nguoiDung.DaXem.OrderByDescending<>
-            return View(nguoiDung);
-        }*/
-/*        public ActionResult ShowListRecent()
-        {
-            MovieWebContext db = new MovieWebContext();
-            if (Session["TaiKhoan"] == null)
-                return RedirectToAction("Login");
-            var k = Session["TaiKhoan"].ToString();
-            NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == k);
 
-        }*/
-        public ActionResult ShowFavorite()
+        public ActionResult ShowFavorite(int? page)
         {
             MovieWebContext db = new MovieWebContext();
             if (Session["TaiKhoan"] == null)
                 return RedirectToAction("Login");
             var k = Session["TaiKhoan"].ToString();
             NguoiDung nguoiDung = db.NguoiDungs.FirstOrDefault(x => x.TaiKhoan == k);
-            List<DanhGiaPhim> list = db.DanhGiaPhims.Where(x => x.MaNguoiDung == nguoiDung.MaNguoiDung).ToList();
-            List<Phim> phims = db.Phims.ToList();
-            foreach (var danhGia in list)
-                foreach (var phim in phims)
-                    if  (!nguoiDung.DaXem.Any(p => p.MaPhim == phim.MaPhim) && danhGia.MaPhim == phim.MaPhim && danhGia.SoSao ==5)
-                    {
-                        /*phim.daoDiens = phim.DaoDiens.ToList();*/
-                        nguoiDung.DaXem.Add(phim);
-                    }
-            return View(nguoiDung);
+            List<DanhGiaPhim> list = db.DanhGiaPhims.Where(x => x.MaNguoiDung == nguoiDung.MaNguoiDung && x.SoSao==5).ToList();
+            List<Phim> phims = new List<Phim>();
+            nguoiDung.DanhGiaPhims.Where(i=>i.SoSao==5).ToList(); 
+            foreach(var item in list)
+                if(!phims.Contains(item.Phim))
+            {
+                phims.Add(item.Phim);
+            }
+            int pageNumber = (page ?? 1);
+            ViewBag.page = pageNumber;
+            return PartialView(phims.ToPagedList(pageNumber, 4));
         }
         public ActionResult LogOut()
         {
             Session.Clear();
             return RedirectToAction("Home", "Movie");
-        }
-        public ActionResult ShowDaoDien(int? id)
-        {
-            MovieWebContext db = new MovieWebContext();
-            Phim phim = db.Phims.FirstOrDefault(x => x.MaPhim == id);
-            return PartialView(phim);
-        }
-        public ActionResult ShowDienVien(int id)
-        {
-            MovieWebContext db = new MovieWebContext();
-            Phim phim = db.Phims.FirstOrDefault(x => x.MaPhim == id);
-            List<DienVienDongPhim> list = db.DienVienDongPhims.Where(x => x.MaPhim == id).ToList();
-            List<DienVien> dienViens = db.DienViens.ToList();
-            foreach(var item in list)
-                foreach(var dienvien in dienViens)
-                    if(item.MaDienVien==dienvien.MaDienVien)
-                    {
-                        phim.dienViens.Add(dienvien);
-                    }
-            return PartialView(phim);
-        }
-        public ActionResult menu_profile()
-        {
-            return PartialView();
         }
     }
 }
