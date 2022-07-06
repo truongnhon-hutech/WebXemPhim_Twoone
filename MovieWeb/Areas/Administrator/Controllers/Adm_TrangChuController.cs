@@ -186,7 +186,7 @@ namespace MovieWeb.Areas.Administrator.Controllers
             ViewBag.month = (float)(db.PhieuDangKies.Where(x => x.NgayThanhToan.Year == DateTime.Now.Year && x.NgayThanhToan.Month == DateTime.Now.Month).Sum(x => x.ThanhTien));
             ViewBag.year = (float)(db.PhieuDangKies.Where(x => x.NgayThanhToan.Year == DateTime.Now.Year).Sum(x => x.ThanhTien));
             ViewBag.LuongDangKy = ((float)(db.NguoiDungs.Where(x => x.PhieuDangKies.Any(y => y.MaGoiDV != 3)).Count())) / ((float)(db.NguoiDungs.Count())) * 100;
-            ViewBag.TienHomNay = (float)(db.PhieuDangKies.Where(x => x.NgayThanhToan.Year == DateTime.Now.Year && x.NgayThanhToan.Month == DateTime.Now.Month && x.NgayThanhToan.Day == DateTime.Now.Day).Sum(x => x.ThanhTien));
+            //ViewBag.TienHomNay = (float)(db.PhieuDangKies.Where(x => x.NgayThanhToan.Year == DateTime.Now.Year && x.NgayThanhToan.Month == DateTime.Now.Month && x.NgayThanhToan.Day == DateTime.Now.Day).Sum(x => x.ThanhTien));
             return View();
         }
         [HttpGet]
@@ -203,7 +203,7 @@ namespace MovieWeb.Areas.Administrator.Controllers
             MovieWebContext db = new MovieWebContext();
             var tendn = collection["Tendn"];
             var matkhau = collection["MatKhau"];
-            var ghinho = collection["GhiNho"];
+            //var ghinho = collection["GhiNho"];
             if (String.IsNullOrEmpty(tendn))
             {
                 ViewData["Err1"] = "Tên đăng nhập không được bỏ trống!";

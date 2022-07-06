@@ -127,7 +127,10 @@
                                 <div class="h5 mb-0
                                 font-weight-bold
                                 text-gray-800">
-                                    @Convert.ToDecimal(@ViewBag.TienHomNay).ToString("#,##0")
+                                    @*@if(@ViewBag.TienHomNay != null){
+                                        @Convert.ToDecimal(@ViewBag.TienHomNay).ToString("#,##0")
+                                    }*@
+                                    
                                     VND
                                 </div>
                             </div>
