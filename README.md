@@ -8,7 +8,7 @@ Name of the project: *Website xem phim Twoone*
 
 - Here is short demo about Twoone website. [Click here to see full!!!](aa)
 
-  <video src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\short demo.mp4"></video>
+  <video src=".\source\short demo.mp4"></video>
 ## Idea
 
 ### Objects use
@@ -20,11 +20,11 @@ Name of the project: *Website xem phim Twoone*
 
 ### Entity relationship diagram(ERD)
 
-<img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\ERD.png" style="zoom:60%;" alt ="ERD"/>
+<img src=".\source\ERD.png" style="zoom:60%;" alt ="ERD"/>
 
 ### Use case summary
 
-<img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\Usecasetq.png" style="zoom:60%" alt="usecase" />
+<img src=".\source\Usecasetq.png" style="zoom:60%" alt="usecase" />
 
 ## Requirements
 - C# 
@@ -35,7 +35,7 @@ Name of the project: *Website xem phim Twoone*
 
 ### Diagram
 
-<img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\sql.png" style="zoom:60%;" alt="sql diagram"/>
+<img src=".\source\sql.png" style="zoom:60%;" alt="sql diagram"/>
 
 You can see more at full report in source folder or 
 
@@ -51,51 +51,51 @@ You can see more at full report in source folder or
 
 | Login                                                        | Register                                                     | Reset password                                               |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![login](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\login.png) | ![register](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\register.png) | ![twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small.png) |
+| ![login](.\source\login.png) | ![register](.\source\register.png) | ![twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small](.\source\twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small.png) |
 
 ##### List film & actor
 
 | List film - type list                                        | List film - type grid                                        | List actor                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False" style="zoom:50%;" /> | <img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter"  /> | <img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_ActorGrid.png" alt="twoonez-001-site1.itempurl.com_Movie_ActorGrid"  /> |
+| <img src=".\source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False" style="zoom:50%;" /> | <img src=".\source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter"  /> | <img src=".\source\twoonez-001-site1.itempurl.com_Movie_ActorGrid.png" alt="twoonez-001-site1.itempurl.com_Movie_ActorGrid"  /> |
 
 #### Movie Details
 
 | film information                                             | similar film                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png) | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png) |
+| ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262](.\source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png) | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)](.\source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png) |
 
 ##### Watching movie
 
-##### <img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262.png" alt="twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262" style="zoom: 50%;" />
+##### <img src=".\source\twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262.png" alt="twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262" style="zoom: 50%;" />
 
 #### Prerium
 
 | Type of service                                              | type of payment                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Payment_PaymentPage](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png) | ![twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png) |
+| ![twoonez-001-site1.itempurl.com_Payment_PaymentPage](.\source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png) | ![twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1](.\source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png) |
 
 ##### About us & Page not found
 
 | About us                                                     | 404 page                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\about us.png" alt="about us" style="zoom:40%;" /> | <img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList.png" alt="twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList" style="zoom:50%;" /> |
+| <img src=".\source\about us.png" alt="about us" style="zoom:40%;" /> | <img src=".\source\twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList.png" alt="twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList" style="zoom:50%;" /> |
 
 #### User
 
 | uSER PROFILE                                                 | FILM RATED                                                   | CHANGE PASS                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_User_ShowInfor](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_User_ShowInfor.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png) |
+| ![twoonez-001-site1.itempurl.com_User_ShowInfor](.\source\twoonez-001-site1.itempurl.com_User_ShowInfor.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite](.\source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass](.\source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png) |
 
 ##### Admin
 
 | Login                                                        | Forget password                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png) |
+| ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png) |
 
 ##### Home Page Admin
 
-![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home.png)
+![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home.png)
 
 ##### 8 function management (C-R-U-D)
 
@@ -103,11 +103,11 @@ example: Film Management
 
 | List film                                                    | Delete                                                       | Create                                                       | Edit                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262](C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png) |
+| ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png) |
 
 #### Statical
 
-<img src="C:\Users\vothu\Downloads\WebXemPhim_Twoone\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical" style="zoom:50%;" />
+<img src=".\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical" style="zoom:50%;" />
 
 Above is all of function we made
 
