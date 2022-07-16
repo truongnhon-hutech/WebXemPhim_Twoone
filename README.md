@@ -61,19 +61,19 @@ You can see more at full report in source folder or
 
 #### Movie Details
 
-| film information                                                                                                           | similar film                                                                                                                       |
-|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262](source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png) | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)](source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png) |
+| film information                                             | similar film                                                 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png" alt="twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png" alt="twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)" style="zoom:80%;" /> |
 
 ##### Watching movie
 
 ##### <img src="source\twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262.png" alt="twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262" style="zoom: 50%;" />
 
-#### Prerium
+#### Premium
 
-| Type of service                                                                                                      | type of payment                                                                                                                                  |
-|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![twoonez-001-site1.itempurl.com_Payment_PaymentPage](source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png) | ![twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1](source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png) |
+| Type of service                                              | type of payment                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png" alt="twoonez-001-site1.itempurl.com_Payment_PaymentPage" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png" alt="twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1" style="zoom:80%;" /> |
 
 ##### About us & Page not found
 
@@ -83,27 +83,27 @@ You can see more at full report in source folder or
 
 #### User
 
-| uSER PROFILE                                                                                               | FILM RATED                                                                                                                             | CHANGE PASS                                                                                                                                |
-|------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| ![twoonez-001-site1.itempurl.com_User_ShowInfor](source\twoonez-001-site1.itempurl.com_User_ShowInfor.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite](source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass](source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png) |
+| uSER PROFILE                                                 | FILM RATED                                                   | CHANGE PASS                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="source\twoonez-001-site1.itempurl.com_User_ShowInfor.png" alt="twoonez-001-site1.itempurl.com_User_ShowInfor" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png" alt="twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png" alt="twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass" style="zoom:80%;" /> |
 
 ##### Admin
 
-| Login                                                                                                                                          | Forget password                                                                                                                                                  |
-|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png) |
+| Login                                                        | Forget password                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword" style="zoom:80%;" /> |
 
 ##### Home Page Admin
 
-![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home.png)
+<img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home" style="zoom:80%;" />
 
 ##### 8 function management (C-R-U-D)
 
 example: Film Management
 
-| List film                                                                                                                  | Delete                                                                                                                                             | Create                                                                                                                                   | Edit                                                                                                                                           |
-|----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png) |
+| List film                                                    | Delete                                                       | Create                                                       | Edit                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_Phim" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262" style="zoom:80%;" /> |
 
 #### Statical
 
