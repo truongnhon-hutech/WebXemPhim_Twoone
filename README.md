@@ -1,4 +1,4 @@
-# PROJECT WEBSITE PROGRAMING - ASP.NET MVC 
+# PROJECT WEBSITE PROGRAMING - ASP.NET MVC - YEAR 2
 
 Name of the project: *Website xem phim Twoone*
 
@@ -8,7 +8,7 @@ Name of the project: *Website xem phim Twoone*
 
 - Here is short demo about Twoone website. [Click here to see full!!!](aa)
 
-  <video src=".\source\short demo.mp4"></video>
+  <video src="source\short demo.mp4" style="zoom:50%;"></video>
 ## Idea
 
 ### Objects use
@@ -20,11 +20,11 @@ Name of the project: *Website xem phim Twoone*
 
 ### Entity relationship diagram(ERD)
 
-<img src=".\source\ERD.png" style="zoom:60%;" alt ="ERD"/>
+<img src="source\ERD.png" style="zoom:60%;" alt ="ERD"/>
 
 ### Use case summary
 
-<img src=".\source\Usecasetq.png" style="zoom:60%" alt="usecase" />
+<img src="source\Usecasetq.png" style="zoom:60%" alt="usecase" />
 
 ## Requirements
 - C# 
@@ -35,7 +35,7 @@ Name of the project: *Website xem phim Twoone*
 
 ### Diagram
 
-<img src=".\source\sql.png" style="zoom:60%;" alt="sql diagram"/>
+<img src="source\sql.png" style="zoom:60%;" alt="sql diagram"/>
 
 You can see more at full report in source folder or 
 
@@ -49,65 +49,65 @@ You can see more at full report in source folder or
 
 ##### Login & Register & Reset Password
 
-| Login                                                        | Register                                                     | Reset password                                               |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![login](.\source\login.png) | ![register](.\source\register.png) | ![twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small](.\source\twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small.png) |
+| Login                        | Register                           | Reset password                                                                                                                                 |
+|------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![login](source\login.png) | ![register](source\register.png) | ![twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small](source\twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small.png) |
 
 ##### List film & actor
 
-| List film - type list                                        | List film - type grid                                        | List actor                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src=".\source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False" style="zoom:50%;" /> | <img src=".\source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter"  /> | <img src=".\source\twoonez-001-site1.itempurl.com_Movie_ActorGrid.png" alt="twoonez-001-site1.itempurl.com_Movie_ActorGrid"  /> |
+| List film - type list                                                                                                                                                            | List film - type grid                                                                                                                     | List actor                                                                                                                      |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| <img src="source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False" style="zoom:50%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter"  /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_ActorGrid.png" alt="twoonez-001-site1.itempurl.com_Movie_ActorGrid"  /> |
 
 #### Movie Details
 
-| film information                                             | similar film                                                 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262](.\source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png) | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)](.\source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png) |
+| film information                                                                                                             | similar film                                                                                                                         |
+|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262](source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png) | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)](source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png) |
 
 ##### Watching movie
 
-##### <img src=".\source\twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262.png" alt="twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262" style="zoom: 50%;" />
+##### <img src="source\twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262.png" alt="twoonez-001-site1.itempurl.com_Movie_WatchingMovie_3262" style="zoom: 50%;" />
 
 #### Prerium
 
-| Type of service                                              | type of payment                                              |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Payment_PaymentPage](.\source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png) | ![twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1](.\source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png) |
+| Type of service                                                                                                        | type of payment                                                                                                                                    |
+|------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![twoonez-001-site1.itempurl.com_Payment_PaymentPage](source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png) | ![twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1](source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png) |
 
 ##### About us & Page not found
 
-| About us                                                     | 404 page                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src=".\source\about us.png" alt="about us" style="zoom:40%;" /> | <img src=".\source\twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList.png" alt="twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList" style="zoom:50%;" /> |
+| About us                                                             | 404 page                                                                                                                                                                                                             |
+|----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="source\about us.png" alt="about us" style="zoom:40%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList.png" alt="twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList" style="zoom:50%;" /> |
 
 #### User
 
-| uSER PROFILE                                                 | FILM RATED                                                   | CHANGE PASS                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_User_ShowInfor](.\source\twoonez-001-site1.itempurl.com_User_ShowInfor.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite](.\source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass](.\source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png) |
+| uSER PROFILE                                                                                                 | FILM RATED                                                                                                                               | CHANGE PASS                                                                                                                                  |
+|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| ![twoonez-001-site1.itempurl.com_User_ShowInfor](source\twoonez-001-site1.itempurl.com_User_ShowInfor.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite](source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass](source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png) |
 
 ##### Admin
 
-| Login                                                        | Forget password                                              |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png) |
+| Login                                                                                                                                            | Forget password                                                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png) |
 
 ##### Home Page Admin
 
-![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home.png)
+![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Adm_Home.png)
 
 ##### 8 function management (C-R-U-D)
 
 example: Film Management
 
-| List film                                                    | Delete                                                       | Create                                                       | Edit                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262](.\source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png) |
+| List film                                                                                                                    | Delete                                                                                                                                               | Create                                                                                                                                     | Edit                                                                                                                                             |
+|------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png) |
 
 #### Statical
 
-<img src=".\source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical" style="zoom:50%;" />
+<img src="source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical.png" alt="twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Statistical" style="zoom:50%;" />
 
 Above is all of function we made
 
@@ -118,6 +118,6 @@ email: vothuongtruongnhon2002@gmail.com
 Author:
 
 | leader                | member       | member         |
-| --------------------- | ------------ | -------------- |
+|-----------------------|--------------|----------------|
 | Võ Thương Trường Nhơn | Phạm Đức Tài | Phạm Hồng Thái |
 
