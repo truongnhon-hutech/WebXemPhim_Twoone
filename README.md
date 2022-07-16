@@ -39,7 +39,7 @@ Name of the project: *Website xem phim Twoone*
 
 You can see more at full report in source folder or 
 
-[**Click here!!!**]: ~/Source/fullreport.pdf	"Click here!!!"
+[**Click here!!!**]: source/fullreport.pdf	"Click here!!!"
 
 
 
@@ -49,20 +49,20 @@ You can see more at full report in source folder or
 
 ##### Login & Register & Reset Password
 
-| Login                        | Register                           | Reset password                                                                                                                                 |
-|------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![login](source\login.png) | ![register](source\register.png) | ![twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small](source\twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small.png) |
+| Login                                                        | Register                                                     | Reset password                                               |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="source\login.png" alt="login" style="zoom:80%;" /> | <img src="source\register.png" alt="register" style="zoom:80%;" /> | <img src="source\twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small.png" alt="twoonez-001-site1.itempurl.com_User_ForgotPassword_class=small" style="zoom:80%;" /> |
 
 ##### List film & actor
 
-| List film - type list                                                                                                                                                            | List film - type grid                                                                                                                     | List actor                                                                                                                      |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| List film - type list                                                                                                                                                          | List film - type grid                                                                                                                   | List actor                                                                                                                    |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | <img src="source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter_Grid=False" style="zoom:50%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_SearchByFilter.png" alt="twoonez-001-site1.itempurl.com_Movie_SearchByFilter"  /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_ActorGrid.png" alt="twoonez-001-site1.itempurl.com_Movie_ActorGrid"  /> |
 
 #### Movie Details
 
-| film information                                                                                                             | similar film                                                                                                                         |
-|------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| film information                                                                                                           | similar film                                                                                                                       |
+|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262](source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262.png) | ![twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2)](source\twoonez-001-site1.itempurl.com_Movie_MovieDetail_3262 (2).png) |
 
 ##### Watching movie
@@ -71,26 +71,26 @@ You can see more at full report in source folder or
 
 #### Prerium
 
-| Type of service                                                                                                        | type of payment                                                                                                                                    |
-|------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Type of service                                                                                                      | type of payment                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![twoonez-001-site1.itempurl.com_Payment_PaymentPage](source\twoonez-001-site1.itempurl.com_Payment_PaymentPage.png) | ![twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1](source\twoonez-001-site1.itempurl.com_Payment_ChonPhuongThucThanhToan_1.png) |
 
 ##### About us & Page not found
 
-| About us                                                             | 404 page                                                                                                                                                                                                             |
-|----------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| About us                                                           | 404 page                                                                                                                                                                                                           |
+|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <img src="source\about us.png" alt="about us" style="zoom:40%;" /> | <img src="source\twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList.png" alt="twoonez-001-site1.itempurl.com_Movie_PageNotFound_aspxerrorpath=_Movie_ActorList" style="zoom:50%;" /> |
 
 #### User
 
-| uSER PROFILE                                                                                                 | FILM RATED                                                                                                                               | CHANGE PASS                                                                                                                                  |
-|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| uSER PROFILE                                                                                               | FILM RATED                                                                                                                             | CHANGE PASS                                                                                                                                |
+|------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | ![twoonez-001-site1.itempurl.com_User_ShowInfor](source\twoonez-001-site1.itempurl.com_User_ShowInfor.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite](source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=favorite.png) | ![twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass](source\twoonez-001-site1.itempurl.com_User_ShowInfor_mode=changepass.png) |
 
 ##### Admin
 
-| Login                                                                                                                                            | Forget password                                                                                                                                                    |
-|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Login                                                                                                                                          | Forget password                                                                                                                                                  |
+|------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_Login.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword](source\twoonez-001-site1.itempurl.com_Administrator_Adm_TrangChu_ForgotPassword.png) |
 
 ##### Home Page Admin
@@ -101,8 +101,8 @@ You can see more at full report in source folder or
 
 example: Film Management
 
-| List film                                                                                                                    | Delete                                                                                                                                               | Create                                                                                                                                     | Edit                                                                                                                                             |
-|------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| List film                                                                                                                  | Delete                                                                                                                                             | Create                                                                                                                                   | Edit                                                                                                                                           |
+|----------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Delete_3262.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Create.png) | ![twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262](source\twoonez-001-site1.itempurl.com_Administrator_Adm_Phim_Edit_3262.png) |
 
 #### Statical
