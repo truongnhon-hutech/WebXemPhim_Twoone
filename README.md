@@ -6,7 +6,7 @@ Name of the project: *Website xem phim Twoone*
 - Website watching movie Twoone with up to **4000 films** and many interesting functions. We use asp.net MVC 5 technology to build the website. 
   The website has some layouts look like this:
 
-- Here is short demo about Twoone website. [Click here to see full!!!](aa)
+- Here is short demo about Twoone website. [Click here to see full!!!](https://www.youtube.com/watch?v=pwxriq0qSIQ)
 
   <video src="source\short demo.mp4" style="zoom:50%;"></video>
 ## Idea
